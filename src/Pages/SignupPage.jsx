@@ -58,13 +58,13 @@ const SignupPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <label>Admin Status:
+        {/* <label>Admin Status:
           <input
             type="checkbox"
             value={isAdmin}
             onChange={(e) => setIsAdmin(e.target.checked)}
           />
-        </label>
+        </label> */}
         <button>Signup</button>
       </form>
     </div>
