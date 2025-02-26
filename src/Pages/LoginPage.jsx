@@ -1,0 +1,70 @@
+import axios from "axios";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5005";
+
+const LoginPage = () => {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const nav = useNavigate();
+  const { authenticateUser } = useContext(AuthContext);
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    const userToLogin = {
+      email: email,
+      password: password,
+    };
+
+    try {
+      const response = await axios.post(
+        `${BACKEND_URL}/users/login`,
+        userToLogin
+      );
+
+      console.log("Login response data:", response.data);
+
+      localStorage.setItem("authToken", response.data.authToken);
+      localStorage.setItem("userId", response.data.userId);
+      await authenticateUser();
+      alert("Login Successful!");
+
+      const isAdmin = response.data.isAdmin === "true"
+
+      nav(isAdmin ? "/dashboard" : "/home");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  return (
+    <div className="login">
+      <h1>Login</h1>
+      <form onSubmit={handleLogin}>
+        <label>
+          Email:
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </label>
+        <button>Login</button>
+        <Link to={`/`}>
+          <button className="home">Home</button>
+        </Link>
+      </form>
+    </div>
+  );
+};
+export default LoginPage;
