@@ -36,12 +36,13 @@ const AllCertifications = () => {
                 <h3>
                   <em>Provider:</em> {certification.provider}
                 </h3>
-                <button onClick={handleUpdate}className="cardButton">Update Button</button>
-                <button onClick={handleDelete} className="cardButton">Delete Certification</button>
+                <button onClick={handleUpdate} className="back-to-dash">Update Button</button>
+                <button onClick={handleDelete} className="back-to-dash">Delete Certification</button>
               </div>
             </div>
           ))}
         </div>
+        <Link to="/dashboard" className="back-to-dash">Back to Dashboard</Link>
       </div>
     </>
   );

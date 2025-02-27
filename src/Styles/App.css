@@ -182,7 +182,7 @@ body {
 }
 
 .action-buttons {
-  display: flex;  
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 250px;
@@ -298,6 +298,14 @@ a {
   align-items: center;
 }
 
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 33vh;
+}
+
 .login h1 {
   color: var(--primary-darkbackground-text);
   font-size: 3rem;
@@ -356,14 +364,12 @@ a {
   color: var(--header-text-color);
   font-weight: bold;
   border: none;
-  width: 100%;  
+  width: 100%;
   border-radius: 5px;
   -webkit-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
   -moz-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
   box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
 }
-
-
 
 .login .home:hover {
   box-shadow: none;
@@ -383,7 +389,6 @@ a {
   margin-bottom: 75px;
 }
 
-
 .about a {
   padding: 15px;
   margin: 50px;
@@ -400,7 +405,7 @@ a {
 
 .about a:hover {
   box-shadow: none;
-  color: var(--hovers)
+  color: var(--hovers);
 }
 
 .about h1 {
@@ -428,10 +433,9 @@ a {
   font-size: 2rem;
 }
 
-
 .skills {
   width: 33vw;
-  margin: 0 50px
+  margin: 0 50px;
 }
 
 .skills HR {
@@ -441,14 +445,14 @@ a {
 .skills p {
   color: var(--primary-darkbackground-text);
   font-size: 2rem;
-  margin-bottom: 25px
+  margin-bottom: 25px;
 }
 
 .list {
-  display:flex;
+  display: flex;
   justify-content: space-around;
 }
-.list ul p{
+.list ul p {
   font-size: 1.5rem;
 }
 .list ul li {
@@ -461,14 +465,13 @@ a {
 .soft-skills {
   width: 40%;
   border-right: 3px solid var(--icon-accents);
-  margin: 20px
+  margin: 20px;
 }
 
 .hard-skills {
   width: 60%;
   margin: 20px;
 }
-
 
 /* No Admin Page styling */
 
@@ -652,7 +655,9 @@ a {
 }
 
 .allCertificationsContainer > * {
-  width: calc(25% - 10px); /* 25% for 4 items per row, adjust margin if needed */
+  width: calc(
+    25% - 10px
+  ); /* 25% for 4 items per row, adjust margin if needed */
   margin: 5px; /* Optional: adds spacing between items */
 }
 
@@ -717,6 +722,24 @@ a {
   scale: 1.5;
 }
 
+.back-to-dash {
+  padding: 5px;
+  background-color: var(--header-color);
+  color: var(--header-text-color);
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
+  -moz-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
+  box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
+}
+
+.back-to-dash:hover{
+  box-shadow: none;
+  color: var(--hovers);
+  border: 1px solid var(--background-and-borders)
+}
+
 /* Add Certification Form */
 .addCertificationWrapper {
   display: flex;
@@ -727,14 +750,22 @@ a {
 }
 
 .addCertificationWrapper a {
-  margin: 15px;
+  margin: 10px;
   padding: 10px;
+  background-color: var(--header-color);
+  color: var(--header-text-color);
+  font-weight: bold;
   border: none;
-  background-color: var(--background-and-borders);
-  text-decoration: none;
-  border-radius: 50px;
-  font-size: 1.5rem;
-  color: var(--primary-text);
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
+  -moz-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
+  box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
+}
+
+.addCertificationWrapper a:hover {
+  box-shadow: none;
+  color: var(--hovers);
+  border: 0.5px solid var(--background-and-borders)
 }
 
 .addCertification {
@@ -773,15 +804,23 @@ a {
 }
 
 .addCertification button {
-  padding: 10px;
   margin: 10px;
-  border-radius: 50px;
-  border: #0056d2;
-  background-color: var(--background-and-borders);
-  font-size: 1.5rem;
-  color: var(--primary-text);
+  padding: 10px;
+  background-color: var(--header-color);
+  color: var(--header-text-color);
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
+  -moz-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
+  box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
 }
 
+.addCertification button:hover {
+  box-shadow: none;
+  color: var(--hovers);
+  border: 0.5px solid var(--background-and-borders)
+}
 
 .spinner {
   height: 100vh;
@@ -808,5 +847,5 @@ a {
 
 .spinner a:hover {
   box-shadow: none;
-  color: var(--hovers)
+  color: var(--hovers);
 }

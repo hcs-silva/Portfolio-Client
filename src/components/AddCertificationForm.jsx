@@ -101,13 +101,14 @@ const AddCertificationForm = () => {
             type="button"
             onClick={handleImageUpload}
             disabled={uploading}
+            className="back-to-dash"
           >
             {uploading ? "Uploading..." : "Upload Image"}
           </button>         
           <button type="submit">Add Certification</button>
         </form>
       </div>
-      <Link to="/">Home</Link>
+      <Link to="/dashboard" className="back-to-dash">Back to Dashboard</Link>
     </div>
   );
 };
