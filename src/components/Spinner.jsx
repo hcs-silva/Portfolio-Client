@@ -12,7 +12,8 @@ const Spinner = () => {
           ariaLabel="hourglass-loading"
           wrapperStyle={{}}
           wrapperClass=""
-          colors={["#f8f9fa", "#ff6b6b"]}
+        colors={["var(--header-text-color)", "var(--hovers)"]}
+
         />
       <Link to="/">Home</Link>
       </div>

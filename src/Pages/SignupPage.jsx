@@ -6,30 +6,30 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5005";
 
 const SignupPage = () => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
 
-  const nav = useNavigate()
+  const nav = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
     const newUser = {
-        username,
-        email,
-        password,
-        isAdmin
-    }
+      username,
+      email,
+      password,
+      isAdmin,
+    };
 
     try {
-        const response = await axios.post(`${BACKEND_URL}/users/signup`, newUser)
-        console.log(response.data);
-        if(response) {
-            alert("User created successfully");
-            nav("/login")     
-        }
+      const response = await axios.post(`${BACKEND_URL}/users/signup`, newUser);
+      console.log(response.data);
+      if (response) {
+        alert("User created successfully");
+        nav("/login");
+      }
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
   }
 
@@ -37,21 +37,24 @@ const SignupPage = () => {
     <div className="signup">
       <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
-        <label>Username: 
+        <label>
+          Username:
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-        <label>Email: 
+        <label>
+          Email:
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label>Password: 
+        <label>
+          Password:
           <input
             type="password"
             value={password}
