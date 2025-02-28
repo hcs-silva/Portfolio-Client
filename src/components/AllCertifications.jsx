@@ -20,11 +20,11 @@ const AllCertifications = () => {
 
   return (
     <>
-      <div className="allCertificationsPage">
+      <div className="certificationsPage">
         <h1> All Certifications</h1>
-        <div className="allCertificationsContainer">
+        <div className="certificationsContainer">
           {certifications.map((certification) => (
-            <div key={certification._id} className="allCertification-card">
+            <div key={certification._id} className="certification-card">
               <div>
                 <img
                   src={certification.certificationLink}
@@ -36,8 +36,8 @@ const AllCertifications = () => {
                 <h3>
                   <em>Provider:</em> {certification.provider}
                 </h3>
-                <button onClick={handleUpdate} className="back-to-dash">Update Button</button>
-                <button onClick={handleDelete} className="back-to-dash">Delete Certification</button>
+                <button onClick={handleUpdate}>Update Button</button>
+                <button onClick={handleDelete}>Delete Certification</button>
               </div>
             </div>
           ))}

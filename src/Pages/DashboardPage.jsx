@@ -7,15 +7,18 @@ const DashboardPage = () => {
   return (
     <div className="dashboardPage">
         <Link to="/add-project">
-            <button>Add Project</button>
+            Add Project
         </Link>
         <Link to="/add-certification">
-            <button>Add Certification</button>
+            Add Certification
         </Link>
         <Link to="/dashboard/all-certifications">
-          <button>All Certifications</button>
+          All Certifications
         </Link>
-        <button onClick={handleLogout}>Log Out</button>
+        <Link to="/dashboard/all-projects">
+          All Projects
+        </Link>
+        <button onClick={handleLogout} className="dash-logout">Log Out</button>
     </div>
   )
 }

@@ -24,8 +24,92 @@
   padding: 0;
 }
 
-body {
+html, body {
   background-color: var(--header-color);
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Altura total da viewport */
+}
+
+.main-content {
+  height: 80vh;
+  flex: 1;
+}
+
+/* Global Styles */
+
+.navButtons {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+
+button {
+  flex: 1;
+  padding: 15px;
+  margin: 50px;
+  border-radius: 15px;
+  border: 1px solid var(--primary-darkbackground-text);
+  background-color: var(--header-color);
+  color: var(--primary-darkbackground-text);
+  font-weight: bold;
+  font-size: 2.5rem;
+  -webkit-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
+  -moz-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
+  box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
+}
+
+button:hover {
+  box-shadow: none;
+  color: var(--hovers);
+}
+
+a {
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--primary-darkbackground-text);
+  background-color: var(--header-color);
+  color: var(--primary-darkbackground-text);
+  font-weight: bold;
+  font-size: 2.5rem;
+  -webkit-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
+  -moz-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
+  box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
+}
+
+a:hover {
+  box-shadow: none;
+  color: var(--hovers);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  backdrop-filter: blur(10px); /* Glass effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+textarea {
+  height: 100px;
+  width: 100%;
 }
 
 /* Landing styles */
@@ -188,28 +272,6 @@ body {
   width: 250px;
 }
 
-.action-buttons a {
-  padding: 10px;
-  margin: 15px;
-  border: 1px solid var(--background-and-borders);
-  color: var(--secondary-muted-sections);
-  font-size: 2.5rem;
-  font-weight: bold;
-  border-radius: 15px;
-  -webkit-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-  -moz-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-  box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-}
-
-.action-buttons a:hover {
-  color: var(--hovers);
-  box-shadow: none;
-}
-
-a {
-  text-decoration: none;
-}
-
 .landing-bottom ul li {
   text-align: center;
   margin: 15px;
@@ -244,21 +306,6 @@ a {
   margin: 15px;
 }
 
-.signup form {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1); /* Light transparent background */
-  border-radius: 16px;
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-  backdrop-filter: blur(10px); /* Glass effect */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
 .signup form label {
   display: flex;
   color: var(--header-text-color);
@@ -270,23 +317,6 @@ a {
   border-radius: 5px;
   border: none;
   margin-left: 5px;
-}
-
-.signup form button {
-  padding: 5px;
-  background-color: var(--header-color);
-  color: var(--header-text-color);
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  -webkit-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
-  -moz-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
-  box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
-}
-
-.signup form button:hover {
-  box-shadow: none;
-  color: var(--hovers);
 }
 
 /* Login Page Styling */
@@ -312,21 +342,6 @@ a {
   margin: 15px;
 }
 
-.login form {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1); /* Light transparent background */
-  border-radius: 16px;
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-  backdrop-filter: blur(10px); /* Glass effect */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
 .login form label {
   display: flex;
   color: var(--header-text-color);
@@ -338,23 +353,6 @@ a {
   border-radius: 5px;
   border: none;
   margin-left: 5px;
-}
-
-.login form button {
-  padding: 5px;
-  background-color: var(--header-color);
-  color: var(--header-text-color);
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  -webkit-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
-  -moz-box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
-  box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
-}
-
-.login form button:hover {
-  box-shadow: none;
-  color: var(--hovers);
 }
 
 .login .home {
@@ -371,11 +369,6 @@ a {
   box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
 }
 
-.login .home:hover {
-  box-shadow: none;
-  color: var(--hovers);
-}
-
 /* About Page Styling */
 
 .about {
@@ -387,25 +380,6 @@ a {
 #topHR {
   width: 400px;
   margin-bottom: 75px;
-}
-
-.about a {
-  padding: 15px;
-  margin: 50px;
-  border-radius: 15px;
-  border: 1px solid var(--primary-darkbackground-text);
-  background-color: var(--header-color);
-  color: var(--primary-darkbackground-text);
-  font-weight: bold;
-  font-size: 2.5rem;
-  -webkit-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-  -moz-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-  box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-}
-
-.about a:hover {
-  box-shadow: none;
-  color: var(--hovers);
 }
 
 .about h1 {
@@ -481,44 +455,6 @@ a {
   align-items: center;
 }
 
-.noAdmin-bottom ul li {
-  text-align: center;
-  margin: 15px;
-  font-size: 3rem;
-  list-style: none;
-  color: var(--secondary-muted-sections);
-  border: 1px solid var(--primary-darkbackground-text);
-  border-radius: 15px;
-  padding: 5px;
-  -webkit-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-  -moz-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-  box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-}
-
-.noAdmin-bottom ul li:hover {
-  color: var(--hovers);
-  box-shadow: none;
-}
-
-.noAdmin-bottom button {
-  padding: 15px;
-  margin: 50px;
-  border-radius: 15px;
-  border: 1px solid var(--primary-darkbackground-text);
-  background-color: var(--header-color);
-  color: var(--primary-darkbackground-text);
-  font-weight: bold;
-  font-size: 2.5rem;
-  -webkit-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-  -moz-box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-  box-shadow: 2px 2px 10px 0px var(--primary-darkbackground-text);
-}
-
-.noAdmin-bottom button:hover {
-  color: var(--hovers);
-  box-shadow: none;
-}
-
 /* Dashboard Page styling */
 
 .dashboardPage {
@@ -526,20 +462,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.dashboardPage button {
-  margin: 25px;
-  padding: 15px;
-  border-radius: 50px;
-  background-color: var(--hover-activestate);
-  color: var(--header-text-color);
-  font-weight: 700;
-  border: 1px solid var(--secondary-muted-sections);
-}
-
-.dashboardPage button:hover {
-  scale: 1.5;
+  margin-top: 100px;
 }
 
 /* Certifications card styling */
@@ -547,14 +470,17 @@ a {
 .certificationsContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Ensures even spacing */
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .certificationsContainer > * {
-  width: calc(
-    25% - 10px
-  ); /* 25% for 4 items per row, adjust margin if needed */
-  margin: 5px; /* Optional: adds spacing between items */
+  flex: 1 1 calc(25% - 20px); /* Up to 4 per row, with spacing */
+  max-width: calc(25% - 20px);
+  box-sizing: border-box; /* Ensures padding/border don’t affect width */
 }
 
 .certificationsPage {
@@ -576,24 +502,35 @@ a {
 
 .certification-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-direction: column;
   justify-content: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1); /* Light transparent background */
-  border-radius: 16px;
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-  backdrop-filter: blur(10px); /* Glass effect */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  width: 280px; /* Adjust width for better layout */
+  min-height: 350px; /* Set a consistent height */
+  max-height: 400px; /* Prevent overflow */
+  overflow: hidden; /* Hide overflow content */
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease-in-out;
 }
 
 .certification-card > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 15px;
   text-align: center;
-  width: 300px;
+  flex: 1 1 300px; /* Grow, shrink, and start at 300px */
+  min-width: 200px; /* Prevents the items from getting too small */
+  max-width: 100%; /* Ensures it doesn't overflow */
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -613,9 +550,10 @@ a {
 
 .certification-card img {
   width: 100%;
-  height: auto;
+  height: 180px; /* Ensures images are consistent */
+  object-fit: cover; /* Prevents stretching */
   border-radius: 8px;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .certification-card em {
@@ -624,102 +562,27 @@ a {
 }
 
 .certification-card button {
-  padding: 5px;
-  margin: 5px;
-  border-radius: 50px;
-  border: none;
+  flex: 1;
+  padding: 10px 20px; /* Reduced padding */
+  margin: 2px; /* Reduced margin */
+  border-radius: 10px; /* Slightly smaller radius */
+  border: 1px solid var(--primary-darkbackground-text);
+  background-color: var(--header-color);
+  color: var(--primary-darkbackground-text);
+  font-weight: bold;
+  font-size: 0.8rem; /* Reduced font size */
+  -webkit-box-shadow: 2px 2px 8px 0px var(--primary-darkbackground-text);
+  -moz-box-shadow: 2px 2px 8px 0px var(--primary-darkbackground-text);
+  box-shadow: 2px 2px 8px 0px var(--primary-darkbackground-text);
+  max-width: 100%; /* Ensures it doesn’t overflow */
+  display: flex; /* Keeps flexibility */
+  justify-content: center;
+  align-items: center;
 }
 
 .certification-card button:hover {
-  scale: 1.5;
-}
-
-/* All Certifications Page styling */
-
-.allCertificationsPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.allCertificationsPage h1 {
-  color: var(--header-text-color);
-  margin: 20px;
-}
-
-.allCertificationsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* Ensures even spacing */
-}
-
-.allCertificationsContainer > * {
-  width: calc(
-    25% - 10px
-  ); /* 25% for 4 items per row, adjust margin if needed */
-  margin: 5px; /* Optional: adds spacing between items */
-}
-
-.allCertification-card {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1); /* Light transparent background */
-  border-radius: 16px;
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-  backdrop-filter: blur(10px); /* Glass effect */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.allCertification-card > div {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 15px;
-  text-align: center;
-  width: 300px;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s ease-in-out;
-}
-
-.allCertification-card > div:hover {
-  transform: scale(1.05);
-}
-
-.allCertification-card p {
-  font-size: 16px;
-  color: #fff;
-  font-weight: bold;
-}
-
-.allCertification-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-
-.allCertification-card em {
+  box-shadow: none;
   color: var(--hovers);
-  font-size: 1.2rem;
-}
-
-.allCertification-card button {
-  padding: 5px;
-  margin: 5px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-}
-
-.allCertification-card button:hover {
-  scale: 1.5;
 }
 
 .back-to-dash {
@@ -734,10 +597,10 @@ a {
   box-shadow: 1px 1px 3px 0px var(--primary-darkbackground-text);
 }
 
-.back-to-dash:hover{
+.back-to-dash:hover {
   box-shadow: none;
   color: var(--hovers);
-  border: 1px solid var(--background-and-borders)
+  border: 1px solid var(--background-and-borders);
 }
 
 /* Add Certification Form */
@@ -765,14 +628,13 @@ a {
 .addCertificationWrapper a:hover {
   box-shadow: none;
   color: var(--hovers);
-  border: 0.5px solid var(--background-and-borders)
+  border: 0.5px solid var(--background-and-borders);
 }
 
 .addCertification {
   display: flex;
   flex-direction: column;
-
-  height: 300px;
+  height: auto;
   width: 500px;
   gap: 20px;
   justify-content: center;
@@ -794,13 +656,23 @@ a {
 .addCertification form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-.addCertification label {
-  color: var(--hovers);
+.addCertification form input {
+  width: 100%;
+  padding: 5px;
+}
+
+.addCertification form label {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: var(--header-text-color);
+  font-size: 1.5rem;
   margin: 10px;
+  white-space: nowrap;
 }
 
 .addCertification button {
@@ -819,7 +691,35 @@ a {
 .addCertification button:hover {
   box-shadow: none;
   color: var(--hovers);
-  border: 0.5px solid var(--background-and-borders)
+  border: 0.5px solid var(--background-and-borders);
+}
+
+/* Add Project styling */
+
+
+.addProjectWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.addProject {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 500px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  backdrop-filter: blur(10px); /* Glass effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .spinner {
@@ -849,3 +749,16 @@ a {
   box-shadow: none;
   color: var(--hovers);
 }
+
+
+.footer {
+  background-color: var(--header-color);
+  color: var(--header-text-color);
+  text-align: center;
+  padding: 20px;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -31,7 +31,7 @@ const LoginPage = () => {
       await authenticateUser();
       alert("Login Successful!");
 
-      const isAdmin = response.data.isAdmin === "true"
+      const isAdmin = response.data.isAdmin === "true";
 
       nav(isAdmin ? "/dashboard" : "/home");
     } catch (error) {
@@ -42,29 +42,27 @@ const LoginPage = () => {
   return (
     <div className="login">
       <div className="form-container">
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <label>
-          Email:
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button>Login</button>
-        <Link to={`/`}>
-          <button className="home">Home</button>
-        </Link>
-      </form>
+        <h1>Login</h1>
+        <form onSubmit={handleLogin}>
+          <label>
+            Email:
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <label>
+            Password:
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <button>Login</button>
+        </form>
+          <Link to={`/`}>Home</Link>
       </div>
     </div>
   );

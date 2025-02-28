@@ -21,11 +21,8 @@ const CertificationsPage = () => {
         <h1>Certifications</h1>
         <div className="certificationsContainer">
           {certifications.map((certification) => (
-            <Link
-              to={`/certifications/certification-detail/${certification._id}`}
-              key={certification._id}
-            >
-              <div className="certification-card">
+           
+              <div className="certification-card" key={certification._id}>
                 <div>
                   <img
                     src={certification.certificationLink}
@@ -39,9 +36,10 @@ const CertificationsPage = () => {
                   </h3>
                 </div>
               </div>
-            </Link>
+            
           ))}
         </div>
+        <Link to="/home" >Home</Link>
       </div>
     </>
   );

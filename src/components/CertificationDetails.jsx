@@ -15,7 +15,7 @@ useEffect(() => {
     setCertification(oneCertification)
   }
   getCertification()
-}, [])
+}, [certificationId])
 
 
   return (

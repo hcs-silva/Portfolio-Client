@@ -4,7 +4,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
 
 const NoAdminPage = () => {
-    const {handleLogout} = useContext(AuthContext);
+  const { handleLogout } = useContext(AuthContext);
 
   return (
     <div className="noAdmin-page">
@@ -26,20 +26,14 @@ const NoAdminPage = () => {
         </div>
       </div>
       <div className="noAdmin-bottom">
-        <div className="noAdmin-buttons">          
+        <div className="noAdmin-buttons">
           <button onClick={handleLogout}>Logout</button>
         </div>
-        <ul>
-          <Link to="/about">
-            <li>About</li>
-          </Link>
-          <Link to="/projects">
-            <li>Projects</li>
-          </Link>
-          <Link to="/certifications">
-            <li>Certifications</li>
-          </Link>
-        </ul>
+        <div className="navButtons">
+          <Link to="/about">About</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/certifications">Certifications</Link>
+        </div>
       </div>
     </div>
   );

@@ -15,10 +15,13 @@ import NoAdminPage from "./Pages/NoAdminPage";
 import AdminRoute from "./components/AdminRoute";
 import NotFoundPage from "./Pages/NotFoundPage";
 import UpdateCertification from "./components/UpdateCertification";
+import AllProjects from "./components/AllProjects";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
+    <div>
+      <main className="main-content">
       <Routes>
         <Route path="/signup" element={<SignupPage />}></Route>
         <Route path="/login" element={<LoginPage/>}></Route>
@@ -40,12 +43,17 @@ function App() {
         ></Route>
         <Route
           path="/dashboard/all-certifications"
-          element={<AllCertifications />}
+          element={<AdminRoute><AllCertifications /></AdminRoute>}
         ></Route>
-
+        <Route
+          path="/dashboard/all-projects"
+          element={<AdminRoute><AllProjects /></AdminRoute>}
+        ></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
       </Routes>
-    </>
+      </main>
+      <Footer/>
+    </div>
   );
 }
 
