@@ -1,6 +1,8 @@
 const MessageComponent = () => {
   return (
-    <div>MessageComponent</div>
+    <div>
+      <p> Message from the backend here!!</p>
+    </div>
   )
 }
 export default MessageComponent

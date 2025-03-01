@@ -722,6 +722,78 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Projects page styling */
+
+.projectsPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  color: var(--primary-darkbackground-text);
+  font-size: 2.5rem;
+}
+
+.projectsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  width: 280px; /* Adjust width for better layout */
+  min-height: 350px; /* Set a consistent height */
+  max-height: 400px; /* Prevent overflow */
+  overflow: hidden; /* Hide overflow content */
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px; /* Ensures images are consistent */
+  object-fit: cover; /* Prevents stretching */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.project-card > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  flex: 1 1 300px; /* Grow, shrink, and start at 300px */
+  min-width: 200px; /* Prevents the items from getting too small */
+  max-width: 100%; /* Ensures it doesn't overflow */
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-card > div:hover {
+  transform: scale(1.05);
+}
+
 .spinner {
   height: 100vh;
   width: 100vw;
@@ -756,7 +828,7 @@ textarea {
   color: var(--header-text-color);
   text-align: center;
   padding: 20px;
-  height: 20vh;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;

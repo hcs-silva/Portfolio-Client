@@ -10,7 +10,7 @@ const AuthWrapper = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false);
   const nav = useNavigate();
 
   const authenticateUser = async () => {
@@ -19,13 +19,16 @@ const AuthWrapper = ({ children }) => {
     if (webToken) {
       try {
         console.log("Authenticating user...");
-        const responseToVerify = await axios.get(`${BACKEND_URL}/users/verify`, {
-          headers: { authorization: `Bearer ${webToken}` },
-          timeout: 5000
-        });
+        const responseToVerify = await axios.get(
+          `${BACKEND_URL}/users/verify`,
+          {
+            headers: { authorization: `Bearer ${webToken}` },
+            timeout: 5000,
+          }
+        );
         console.log("User authenticated:", responseToVerify.data);
         setUser(responseToVerify.data.currentUser);
-        setIsAdmin(responseToVerify.data.currentUser.isAdmin)
+        setIsAdmin(responseToVerify.data.currentUser.isAdmin);
         setIsLoggedIn(true);
         setIsLoading(false);
       } catch (error) {
@@ -43,14 +46,28 @@ const AuthWrapper = ({ children }) => {
     }
   };
 
-function handleLogout() {
-  console.log("Logged Out")
-  localStorage.removeItem("authToken");
-  localStorage.removeItem("userId")
-  nav("/")
-}
+  function handleLogout() {
+    console.log("Logged Out");
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("userId");
+    nav("/");
+  }
+
+  useEffect(() => {
+    authenticateUser();
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user, isLoading, isLoggedIn , isAdmin, authenticateUser, handleLogout}}>
+    <AuthContext.Provider
+      value={{
+        user,
+        isLoading,
+        isLoggedIn,
+        isAdmin,
+        authenticateUser,
+        handleLogout,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -1,14 +1,21 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5005";
 
 const CertificationsPage = () => {
   const [certifications, setCertifications] = useState([]);
+  const{authenticateUser} = useContext(AuthContext)
+
+  useEffect(() => {
+    authenticateUser();
+  }, []);
+  
   useEffect(() => {
     axios.get(`${BACKEND_URL}/certifications`).then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setCertifications(response.data.foundCertifications);
     });
   }, []);

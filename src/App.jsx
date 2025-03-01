@@ -6,7 +6,7 @@ import CertificationsPage from "./Pages/CertificationsPage";
 import DashboardPage from "./Pages/DashboardPage";
 import LandingPage from "./Pages/LandingPage";
 import ProjectsPage from "./Pages/ProjectsPage";
-import CertificationDetails from "./components/CertificationDetails";
+import ProjectDetails from "./components/ProjectDetails";
 import "./Styles/App.css";
 import { Routes, Route } from "react-router-dom";
 import SignupPage from "./Pages/SignupPage";
@@ -31,15 +31,15 @@ function App() {
         <Route path="/about" element={<AboutPage />}></Route>
         <Route path="/certifications" element={<CertificationsPage />}></Route>
         <Route
-          path="/certifications/certification-detail/:certificationId"
-          element={<CertificationDetails />}
+          path="/projects/project-detail/:projectId"
+          element={<ProjectDetails />}
         ></Route>
         <Route path="/update-certification" element= {<AdminRoute><UpdateCertification/></AdminRoute>}></Route>
         <Route path="/dashboard" element={<AdminRoute><DashboardPage /></AdminRoute>}></Route>
-        <Route path="/add-project" element={<AddProjectForm />}></Route>
+        <Route path="/add-project" element={<AdminRoute><AddProjectForm /></AdminRoute>}></Route>
         <Route
           path="/add-certification"
-          element={<AddCertificationForm />}
+          element={<AdminRoute><AddCertificationForm /></AdminRoute>}
         ></Route>
         <Route
           path="/dashboard/all-certifications"

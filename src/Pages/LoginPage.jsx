@@ -28,6 +28,13 @@ const LoginPage = () => {
 
       localStorage.setItem("authToken", response.data.authToken);
       localStorage.setItem("userId", response.data.userId);
+      localStorage.setItem("isAdmin", response.data.isAdmin);
+      
+        //TODO: add renderization of the message instead of the alerts
+
+      console.log(response.data.message)
+
+
       await authenticateUser();
       alert("Login Successful!");
 
