@@ -20,7 +20,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="layout">
       <main className="main-content">
       <Routes>
         <Route path="/signup" element={<SignupPage />}></Route>

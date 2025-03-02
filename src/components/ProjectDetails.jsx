@@ -4,6 +4,10 @@ import { AuthContext } from "../contexts/AuthContext";
 import { Link, useParams } from "react-router-dom";
 import github from "../assets/github-mark-white.svg";
 import globe from "../assets/globe-svgrepo-com.svg";
+import { DiJavascript , DiReact, DiHtml5, DiCss3, DiNodejs, DiMongodb} from "react-icons/di";
+import { SiExpress } from "react-icons/si";
+import { IoLogoGithub } from "react-icons/io";
+import { CiGlobe } from "react-icons/ci";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5005";
 
@@ -35,8 +39,21 @@ const ProjectDetails = () => {
     }
   }, [projectId]);
 
+  const icons = {
+    javascript: <DiJavascript />,
+    react: <DiReact />,
+    html: <DiHtml5 />,
+    css: <DiCss3 />,
+    node: <DiNodejs />,
+    mongodb: <DiMongodb />,
+    express: <SiExpress />,
+    github: <IoLogoGithub />,
+    globe: <CiGlobe />,
+  };
+
   return (
-    <div className="projectDetail">
+   
+      <div className="projectDetail">
       <h1>Project Details</h1>
       {oneProject ? (
         <div className="project-detail-card">
@@ -45,23 +62,27 @@ const ProjectDetails = () => {
             <img src={oneProject.thumbnail} alt="Project Thumbnail" />
           </div>
           <div className="bottom-detail">
-            <p> Description: {oneProject.description}</p>
-            <p>Collaborators: 
+            <p> <em>Description:</em> {oneProject.description}</p>
+            <p><em>Collaborators: </em>
               {oneProject.collaborators.map((collaborator, index) => (
                 <span key={index}>{collaborator}</span>
               ))}
             </p>
-            <p> Technologies Used: {oneProject.technologies.map((tech, index) => (
+            <p> <em>Technologies Used:</em> {oneProject.technologies.map((tech, index) => (
                 <span key={index}>{tech}</span>
             ))}</p>
-            <Link to={oneProject.github} ><img src={github} alt="github logo" /></Link>
-            <Link to={oneProject.liveLink} ><img src={globe} alt="world icon" /></Link>
+            <div className="links">
+            <a href={oneProject.githubLink} target="_blank" rel="noopener noreferrer"><IoLogoGithub/></a>
+            <a href={oneProject.liveLink} target="_blank" rel="noopener noreferrer"><CiGlobe/></a>
+            </div>
           </div>
         </div>
       ) : (
         <div>Loading Project...</div>
       )}
+    <Link to="/dashboard" id="dashboard">Back to Dashboard</Link>
     </div>
+    
   );
 };
 export default ProjectDetails;

@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import gitHubstd from "../assets/github-mark.svg";
-import gitHubWhi from "../assets/github-mark-white.svg";
-import css from "../assets/css-icon.svg";
-import html from "../assets/html-icon.svg";
-import js from "../assets/javascript.svg";
-import reactIcon from "../assets/react-js-icon.svg";
-import nodeIcon from "../assets/node-js-icon.svg";
-import mongodb from "../assets/mongodb-icon.svg";
+
 import Footer from "./Footer";
 import axios from "axios";
 
