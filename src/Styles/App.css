@@ -866,12 +866,14 @@ textarea {
 }
 
 .bottom-detail p {
-  color: var(--primary-darkbackground-text);  
+  color: var(--primary-darkbackground-text); 
+  font-size: 1.2rem; 
+  align-items: center;
 }
 
 .bottom-detail em {
   color: var(--hovers);
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -891,6 +893,11 @@ textarea {
 
 .links a {
   background-color: transparent;
+}
+.bottom-detail span {
+  color: var(--primary-darkbackground-text);
+  font-size: 1.5rem;
+  margin: 5px;
 }
 
 .spinner {
