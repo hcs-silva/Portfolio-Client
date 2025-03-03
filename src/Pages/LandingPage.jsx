@@ -16,7 +16,7 @@ const LandingPage = () => {
         <div className="layer1">
           <div className="layer2">
             <div className="layer3">
-              <div className="layer4"></div>
+              <div className="layer4"><h2>Hi there!</h2></div>
             </div>
           </div>
         </div>

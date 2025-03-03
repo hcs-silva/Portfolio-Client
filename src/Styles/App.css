@@ -186,11 +186,20 @@ textarea {
 }
 
 .layer4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #111b2b;
   height: 150px;
   width: 150px;
   border-radius: 50%;
   animation: pulseLayer4 5s ease-in-out infinite;
+}
+
+.layer4 h2 {
+  color: var(--primary-darkbackground-text);
+  font-size: 1.5rem;
+  margin: 5px;
 }
 
 @keyframes rotateLayer1 {
