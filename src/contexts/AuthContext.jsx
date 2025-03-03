@@ -50,6 +50,9 @@ const AuthWrapper = ({ children }) => {
     console.log("Logged Out");
     localStorage.removeItem("authToken");
     localStorage.removeItem("userId");
+    localStorage.removeItem("isAdmin");
+    setUser(null);
+    setIsLoggedIn(false);
     nav("/");
   }
 
