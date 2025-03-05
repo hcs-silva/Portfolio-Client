@@ -70,7 +70,7 @@ const ProjectDetails = () => {
               {" "}
               <em>Description:</em> {oneProject.description}
             </p>
-            <p>
+            <p className="collaborators">
               <em>Collaborators: </em>
               <ul>
               {oneProject.collaborators.map((collaborator, index) => (

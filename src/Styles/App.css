@@ -902,6 +902,11 @@ color: var(--header-text-color);
   color: var(--primary-darkbackground-text); 
   font-size: 1.2rem; 
   align-items: center;
+  margin: 5px;
+}
+
+.collaborators {
+  display: flex; 
 }
 
 .bottom-detail em {
@@ -915,6 +920,11 @@ color: var(--header-text-color);
   border: none;
   box-shadow: none;
   height: 25px;  
+}
+
+.bottom-detail ul {
+  display: flex;
+  margin-left: 20px
 }
 
 .bottom-detail li {
