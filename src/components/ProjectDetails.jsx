@@ -2,8 +2,6 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { Link, useParams } from "react-router-dom";
-import github from "../assets/github-mark-white.svg";
-import globe from "../assets/globe-svgrepo-com.svg";
 import {
   DiJavascript,
   DiReact,
@@ -15,6 +13,7 @@ import {
 import { SiExpress } from "react-icons/si";
 import { IoLogoGithub } from "react-icons/io";
 import { CiGlobe } from "react-icons/ci";
+import { BsLinkedin } from "react-icons/bs";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5005";
 
@@ -47,15 +46,14 @@ const ProjectDetails = () => {
   }, [projectId]);
 
   const techIcons = {
-    javascript: <DiJavascript size="2em"/>,
-    react: <DiReact size="2em"/>,
-    html: <DiHtml5 size="2em"/>,
-    css: <DiCss3 size="2em"/>,
-    node: <DiNodejs size="2em"/>,
-    mongodb: <DiMongodb size="2em"/>,
-    express: <SiExpress size="2em"/>,
-    github: <IoLogoGithub size="2em"/>,
-    globe: <CiGlobe size="2em"/>,
+    JavaScript: <DiJavascript size="2em"/>,
+    React: <DiReact size="2em"/>,
+    HTML: <DiHtml5 size="2em"/>,
+    CSS: <DiCss3 size="2em"/>,
+    Node: <DiNodejs size="2em"/>,
+    MongoDB: <DiMongodb size="2em"/>,
+    Express: <SiExpress size="2em"/>,
+    GitHub: <IoLogoGithub size="2em"/>,    
   };
 
   return (
@@ -74,9 +72,11 @@ const ProjectDetails = () => {
             </p>
             <p>
               <em>Collaborators: </em>
+              <ul>
               {oneProject.collaborators.map((collaborator, index) => (
-                <span key={index}>{collaborator}</span>
+                <li key={index}>{collaborator.name}<a href={collaborator.link}><BsLinkedin size="0.5em"/></a></li>
               ))}
+              </ul>
             </p>
             <p>
               {" "}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { BsLinkedin } from "react-icons/bs";
 
 import Footer from "./Footer";
 import axios from "axios";
@@ -9,8 +10,10 @@ const webToken = localStorage.getItem("authToken");
 
 const AddProjectForm = () => {
   const [projectTitle, setProjectTitle] = useState("");
-  const [projectThumbnail, setProjectThumbnail] = useState("");
-  const [collaborators, setCollaborators] = useState("");
+  const [projectThumbnail, setProjectThumbnail] = useState("");  
+  const [collaboratorList, setCollaboratorList] = useState([]);
+  const [collaboratorName, setCollaboratorName] = useState("");
+  const [collaboratorLink, setCollaboratorLink] = useState("");
   const [technologies, setTechnologies] = useState("");
   const [github, setGithub] = useState("");
   const [liveLink, setLiveLink] = useState("");
@@ -19,15 +22,21 @@ const AddProjectForm = () => {
   const [uploading, setUploading] = useState("");
   const [projectDate, setProjectDate] = useState("");
 
-  const nav = useNavigate()
+  const nav = useNavigate();
+
+  const handleAddCollaborator = (e) => {
+    e.preventDefault();
+    const newCollaborator = {
+      name: collaboratorName,
+      link: collaboratorLink,
+    };
+    setCollaboratorList([...collaboratorList, newCollaborator]);
+    setCollaboratorName("");
+    setCollaboratorLink("");
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    const newCollaborators = collaborators
-      .split(",")
-      .map((name) => name.trim()) // Remove spaces around names
-      .filter((name) => name !== ""); // Remove empty strings
 
     const newTechnologies = technologies
       .split(",")
@@ -37,7 +46,7 @@ const AddProjectForm = () => {
     const newProject = {
       title: projectTitle,
       thumbnail: projectThumbnail,
-      collaborators: newCollaborators,
+      collaborators: collaboratorList,
       technologies: newTechnologies,
       githubLink: github,
       liveLink: liveLink,
@@ -45,7 +54,7 @@ const AddProjectForm = () => {
       date: projectDate,
     };
 
-    console.log(newProject)
+    console.log(newProject);
 
     try {
       const response = await axios.post(
@@ -53,11 +62,10 @@ const AddProjectForm = () => {
         newProject,
         { headers: { authorization: `${webToken}` } }
       );
-      if(response) {
-        alert("Project Added Sucessfully")
+      if (response) {
+        alert("Project Added Sucessfully");
         setProjectTitle("");
         setProjectThumbnail("");
-        setCollaborators("");
         setTechnologies("");
         setGithub("");
         setLiveLink("");
@@ -66,7 +74,7 @@ const AddProjectForm = () => {
         setUploading("");
         setProjectDate("");
 
-        nav("/dashboard")
+        nav("/dashboard");
       }
     } catch (error) {
       console.log(error);
@@ -136,16 +144,34 @@ const AddProjectForm = () => {
               }}
             />
           </label>
-          <label>
-            Collaborators:
-            <input
-              type="text"
-              value={collaborators}
-              onChange={(e) => {
-                setCollaborators(e.target.value);
-              }}
-            />
-          </label>
+          <div className="collaborator">
+            <h2>Collaborators: </h2>
+            <ul  value={collaboratorList} onChange={(e) => {setCollaboratorList(e.target.value)}}>{collaboratorList.map((collaborator, index) => (
+              <li key={index}>
+                {collaborator.name} <a href={collaborator.link}><BsLinkedin size="0.5em" /></a>
+              </li>
+            ))}
+            </ul>
+            <label>
+              Collaborator Name:
+              <input
+                type="text"
+                value={collaboratorName}
+                onChange={(e) => {
+                  setCollaboratorName(e.target.value);
+                }}
+              />
+            </label>
+            <label>
+              Collaborator Link:
+              <input
+                type="text"
+                value={collaboratorLink}
+                onChange={(e) => setCollaboratorLink(e.target.value)}
+              />
+            </label>
+            <button onClick={handleAddCollaborator}>Add Collaborator</button>
+          </div>
           <label>
             GitHub Link:
             <input
@@ -166,7 +192,10 @@ const AddProjectForm = () => {
           </label>
           <label>
             Date of Project:
-            <input type="text" onChange={(e) => setProjectDate(e.target.value)} />
+            <input
+              type="text"
+              onChange={(e) => setProjectDate(e.target.value)}
+            />
           </label>
           <button
             type="button"

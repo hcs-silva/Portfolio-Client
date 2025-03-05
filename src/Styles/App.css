@@ -40,6 +40,7 @@ html, body {
 
 .main-content { 
   flex: 1;
+  height: 95vh
 }
 
 /* Global Styles */
@@ -270,7 +271,7 @@ textarea {
   display: flex;
   justify-content: center;
   background-color: var(--header-color);
-  height: 33vh;
+  height: 28vh;
 }
 
 .action-buttons {
@@ -341,7 +342,7 @@ textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 33vh;
+  margin-top: 15vh;
 }
 
 .login h1 {
@@ -730,6 +731,29 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.collaborator {
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+}
+
+.collaborator h2 {
+color: var(--header-text-color);
+}
+
+.collaborator a {
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.collaborator li {
+  list-style: none;
+  color: var(--primary-darkbackground-text);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 /* Projects page styling */
 
 .projectsPage {
@@ -887,9 +911,17 @@ textarea {
 }
 
 .bottom-detail a {
+  background-color: transparent;
   border: none;
   box-shadow: none;
   height: 25px;  
+}
+
+.bottom-detail li {
+  list-style: none;
+  color: var(--primary-darkbackground-text);
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 #dashboard {
