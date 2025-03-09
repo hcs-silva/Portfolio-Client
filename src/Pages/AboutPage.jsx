@@ -104,7 +104,7 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
-      <Link to="/home">Home</Link>
+      <Link to="/">Home</Link>
 
       {/* Fallback Share Modal */}
       {showFallback && (

@@ -46,7 +46,7 @@ const CertificationsPage = () => {
             
           ))}
         </div>
-        <Link to="/home" >Home</Link>
+        <Link to="/" >Home</Link>
       </div>
     </>
   );

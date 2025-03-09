@@ -15,7 +15,7 @@ const DashboardPage = () => {
         <Link to="/dashboard/all-certifications">
           All Certifications
         </Link>
-        <Link to="/dashboard/all-projects">
+        <Link to="/all-projects">
           All Projects
         </Link>
         <button onClick={handleLogout} className="dash-logout">Log Out</button>
