@@ -38,9 +38,9 @@ const LoginPage = () => {
       await authenticateUser();
       alert("Login Successful!");
 
-      const isAdmin = response.data.isAdmin === "true";
+      
 
-      nav(isAdmin ? "/dashboard" : "/home");
+      nav("/dashboard");
     } catch (error) {
       console.log(error);
     }

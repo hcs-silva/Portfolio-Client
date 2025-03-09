@@ -24,7 +24,8 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   background-color: var(--header-color);
   height: 100%;
   margin: 0;
@@ -38,9 +39,9 @@ html, body {
   min-height: 80vh; /* Altura total da viewport */
 }
 
-.main-content { 
+.main-content {
   flex: 1;
-  height: 95vh
+  height: 95vh;
 }
 
 /* Global Styles */
@@ -269,7 +270,7 @@ textarea {
 
 .landing-bottom {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   background-color: var(--header-color);
   height: 28vh;
 }
@@ -298,6 +299,23 @@ textarea {
 .landing-bottom ul li:hover {
   color: var(--hovers);
   box-shadow: none;
+}
+
+.landing-bottom p {
+  font-size: 1.5rem;
+  color: var(--primary-darkbackground-text);
+  font-weight: bold;
+  width: 350px;
+}
+
+.landing-bottom p a {
+  color: var(--primary-darkbackground-text);
+  font-size: 1.5rem;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Signup Page Styling */
@@ -414,6 +432,36 @@ textarea {
 .about-me p {
   color: var(--primary-darkbackground-text);
   font-size: 2rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contacts {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 150px;
+  width: 60%;
+}
+
+.contacts a {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  height: 25px;
+}
+
+.contactIcons {
+  color: var(--primary-darkbackground-text);
+}
+
+.contactIcons:hover {
+  color: var(--hovers);
+  cursor: pointer;
 }
 
 .skills {
@@ -705,13 +753,11 @@ textarea {
 
 /* Add Project styling */
 
-
 .addProjectWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 .addProject {
@@ -732,13 +778,13 @@ textarea {
 }
 
 .collaborator {
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .collaborator h2 {
-color: var(--header-text-color);
+  color: var(--header-text-color);
 }
 
 .collaborator a {
@@ -826,28 +872,25 @@ color: var(--header-text-color);
   transform: scale(1.05);
 }
 
-
 /* Project Details Page styling */
 
 .projectDetail {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
-  
+  align-items: center;
+
   min-height: calc(100vh - 5vh);
 }
 
 .projectDetail h1 {
   color: var(--primary-darkbackground-text);
   font-size: 2.5rem;
-  margin: 10px 0 
+  margin: 10px 0;
 }
 
-
-
 .project-detail-card {
-  display: flex;  
+  display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
@@ -864,8 +907,6 @@ color: var(--header-text-color);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease-in-out;
 }
-
-
 
 .project-detail-card h2 {
   color: var(--primary-darkbackground-text);
@@ -895,18 +936,18 @@ color: var(--header-text-color);
 
 .bottom-detail img {
   height: 25px;
-  margin: 15px 0;  
+  margin: 15px 0;
 }
 
 .bottom-detail p {
-  color: var(--primary-darkbackground-text); 
-  font-size: 1.2rem; 
+  color: var(--primary-darkbackground-text);
+  font-size: 1.2rem;
   align-items: center;
   margin: 5px;
 }
 
 .collaborators {
-  display: flex; 
+  display: flex;
 }
 
 .bottom-detail em {
@@ -919,12 +960,12 @@ color: var(--header-text-color);
   background-color: transparent;
   border: none;
   box-shadow: none;
-  height: 25px;  
+  height: 25px;
 }
 
 .bottom-detail ul {
   display: flex;
-  margin-left: 20px
+  margin-left: 20px;
 }
 
 .bottom-detail li {
@@ -935,7 +976,7 @@ color: var(--header-text-color);
 }
 
 #dashboard {
-  margin: 5px
+  margin: 5px;
 }
 
 .links {
@@ -979,7 +1020,6 @@ color: var(--header-text-color);
   color: var(--hovers);
 }
 
-
 .footer {
   background-color: var(--header-color);
   color: var(--header-text-color);
@@ -988,6 +1028,5 @@ color: var(--header-text-color);
   height: 5vh;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
-

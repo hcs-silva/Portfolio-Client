@@ -116,8 +116,8 @@ const ProjectDetails = () => {
       ) : (
         <div>Loading Project...</div>
       )}
-      <Link to="/dashboard" id="dashboard">
-        Back to Dashboard
+      <Link to="/all-projects" id="dashboard">
+        Back to Projects
       </Link>
     </div>
   );

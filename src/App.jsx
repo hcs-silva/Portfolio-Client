@@ -5,7 +5,7 @@ import AboutPage from "./Pages/AboutPage";
 import CertificationsPage from "./Pages/CertificationsPage";
 import DashboardPage from "./Pages/DashboardPage";
 import LandingPage from "./Pages/LandingPage";
-import ProjectsPage from "./Pages/ProjectsPage";
+
 import ProjectDetails from "./components/ProjectDetails";
 import "./Styles/App.css";
 import { Routes, Route } from "react-router-dom";
@@ -27,7 +27,7 @@ function App() {
         <Route path="/login" element={<LoginPage/>}></Route>
         <Route path="/home" element = {<NoAdminPage/>}></Route>
         <Route path="/" element={<LandingPage />}></Route>
-        <Route path="/projects" element={<ProjectsPage />}></Route>
+        
         <Route path="/about" element={<AboutPage />}></Route>
         <Route path="/certifications" element={<CertificationsPage />}></Route>
         <Route
@@ -46,8 +46,8 @@ function App() {
           element={<AdminRoute><AllCertifications /></AdminRoute>}
         ></Route>
         <Route
-          path="/dashboard/all-projects"
-          element={<AdminRoute><AllProjects /></AdminRoute>}
+          path="/all-projects"
+          element={<AllProjects />}
         ></Route>
         <Route path="*" element={<NotFoundPage/>}></Route>
       </Routes>

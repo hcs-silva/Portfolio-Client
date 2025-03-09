@@ -37,6 +37,7 @@ useEffect(() => {
         </div>
       ))}
       </div>
+      <Link to="/">Home</Link>
     </div>
   )
 }

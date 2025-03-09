@@ -21,12 +21,13 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="landing-bottom">
-        <div className="action-buttons">
-          <NavLink to={`/signup`}>Signup</NavLink>
-          <NavLink to={`/login`}>Login</NavLink>
+      <div className="landing-bottom"> 
+      <p>Feel free to go thorough my certifications, projects and to learn a bit more about {<Link to="/login">me</Link>}!</p>       
+        <div className="navButtons">
+          <Link to="/about">About</Link>
+          <Link to="/all-projects">Projects</Link>
+          <Link to="/certifications">Certifications</Link>
         </div>
-       
       </div>
     </div>
   );
