@@ -306,6 +306,8 @@ textarea {
   color: var(--primary-darkbackground-text);
   font-weight: bold;
   width: 350px;
+  margin-left: 50px;
+  margin-top: 50px;
 }
 
 .landing-bottom p a {

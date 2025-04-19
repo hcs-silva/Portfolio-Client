@@ -20,7 +20,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>      
       <div className="landing-bottom"> 
       <p>Feel free to go thorough my certifications, projects and to learn a bit more about {<Link to="/login">me</Link>}!</p>       
         <div className="navButtons">
