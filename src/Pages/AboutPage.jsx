@@ -67,37 +67,37 @@ const AboutPage = () => {
             <div className="list">
               <ul className="soft-skills">
                 <p>Some of my Soft Skills are:</p>
-                <li>Communication</li>
-                <li>Problem Solving</li>
-                <li>Critical Thinking</li>
-                <li>Teamwork</li>
-                <li>Adaptability</li>
-                <li>Collaboration</li>
+                <li>Communication;</li>
+                <li>Problem Solving;</li>
+                <li>Critical Thinking;</li>
+                <li>Teamwork;</li>
+                <li>Adaptability;</li>
+                <li>Collaboration;</li>
               </ul>
               <ul className="hard-skills">
                 <p>My Hard Skills include:</p>
-                <li>React.js</li>
-                <li>MongoDB</li>
-                <li>Express.js</li>
-                <li>Node.js</li>
-                <li>JavaScript (ES6+)</li>
-                <li>Version Control (Git)</li>
-                <li>HTML/CSS</li>
-                <li>API Integration</li>
-                <li>Authentication (JWT and Bcrypt)</li>
-                <li>Testing Basics</li>
+                <li>React.js;</li>
+                <li>MongoDB;</li>
+                <li>Express.js;</li>
+                <li>Node.js;</li>
+                <li>JavaScript (ES6+);</li>
+                <li>Version Control (Git);</li>
+                <li>HTML/CSS;</li>
+                <li>API Integration;</li>
+                <li>Authentication (JWT and Bcrypt);</li>
+                <li>Testing Basics;</li>
               </ul>
             </div>
           </div>
           <div className="contacts">
             <a href="mailto:hcsilvamatos5@gmail.com">
-              <BsEnvelopeFill size="1em" className="contactIcons" />
+              <BsEnvelopeFill size="1.5em" className="contactIcons" />
             </a>
             <a href="https://www.linkedin.com/in/hernani-silva-webdev">
-              <BsLinkedin size="1em" className="contactIcons" />
+              <BsLinkedin size="1.5em" className="contactIcons" />
             </a>
             <BsShare 
-              size="2em" 
+              size="5em" 
               className="contactIcons cursor-pointer" 
               onClick={handleShare} 
             />
