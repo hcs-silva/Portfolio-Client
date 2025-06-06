@@ -9,7 +9,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const nav = useNavigate();
-  const { authenticateUser } = useContext(AuthContext);
+  const { authenticateUser, handleLogout } = useContext(AuthContext);
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -41,6 +41,7 @@ const LoginPage = () => {
       
 
       nav("/dashboard");
+      setTimeout(handleLogout, 10800000);
     } catch (error) {
       console.log(error);
     }
