@@ -7,14 +7,14 @@ const LandingPage = () => {
       <div className="thumbnail">
         <div className="header-text">
           <h1>Hernâni Silva</h1>
-          <h3>Junior Full Stack Web Developer</h3>
-          <h4>MERN Stack</h4>
+          <h3>Junior Full Stack Web Developer | MERN Stack</h3>
+
           <p className="hero-section">
-            Celebrating the wild beauty of nature, the quiet joy of fishing and
+            Inspired by the wild beauty of nature, the quiet joy of fishing and
             hiking, and the love I share with my wife and our two kittens, I
-            bring curiosity, gratitude, and dedication to every project I
-            build—crafting digital experiences inspired by the world and those I
-            cherish most.
+            bring curiosity, gratitude, and dedication to every project. I craft
+            meaningful digital experiences that blend creativity with technical
+            skill—building solutions shaped by the world and people I cherish.
           </p>
         </div>
         <img src={thumbnail} alt="" />
