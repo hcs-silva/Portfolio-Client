@@ -17,8 +17,7 @@ const AuthWrapper = ({ children }) => {
     const webToken = localStorage.getItem("authToken");
 
     if (webToken) {
-      try {
-        console.log("Authenticating user...");
+      try {        
         const responseToVerify = await axios.get(
           `${BACKEND_URL}/users/verify`,
           {
