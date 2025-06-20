@@ -22,7 +22,7 @@ const LandingPage = () => {
             with technical excellence.
           </p>
         </div>
-        <img src={thumbnail} alt="" />
+        <img src={thumbnail} alt="Hernâni Silva, Full Stack Web Developer" />
       </div>
       <div className="landing-main">
         <div className="layer1">
@@ -43,8 +43,8 @@ const LandingPage = () => {
       </div>
       <div className="landing-bottom">
         <p>
-          Feel free to go thorough my certifications, projects and to learn a
-          bit more about me!
+          Explore my certifications, projects, and learn more about my journey
+          below!
         </p>
         <div className="navButtons">
           <Link to="/about">About</Link>
