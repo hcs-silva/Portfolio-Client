@@ -24,7 +24,7 @@ const LandingPage = () => {
           <div className="layer2">
             <div className="layer3">
               <div className="layer4">
-                <h2>Hi there!</h2>
+                <a href="../../assets/Hernâni-Carvalho-da-Silva-Web-Dev.pdf" download="Hernâni-Carvalho-da-Silva-Web-Dev.pdf" className="downloadCv">Download My CV!</a>
               </div>
             </div>
           </div>
