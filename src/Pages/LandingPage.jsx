@@ -8,13 +8,18 @@ const LandingPage = () => {
         <div className="header-text">
           <h1>Hernâni Silva</h1>
           <h3>Junior Full Stack Web Developer | MERN Stack</h3>
-
+          <p>
+            <strong>
+              Building robust, user-focused web applications with the MERN
+              stack.
+            </strong>
+          </p>
           <p className="hero-section">
             Inspired by the wild beauty of nature, the quiet joy of fishing and
             hiking, and the love I share with my wife and our two kittens, I
-            bring curiosity, gratitude, and dedication to every project. I craft
-            meaningful digital experiences that blend creativity with technical
-            skill—building solutions shaped by the world and people I cherish.
+            bring curiosity, gratitude, and dedication to every project. My goal
+            is to craft meaningful digital experiences that blend creativity
+            with technical excellence.
           </p>
         </div>
         <img src={thumbnail} alt="" />
@@ -24,7 +29,13 @@ const LandingPage = () => {
           <div className="layer2">
             <div className="layer3">
               <div className="layer4">
-                <a href="../../assets/Hernâni-Carvalho-da-Silva-Web-Dev.pdf" download="Hernâni-Carvalho-da-Silva-Web-Dev.pdf" className="downloadCv">Download My CV!</a>
+                <a
+                  href="../../assets/Hernâni-Carvalho-da-Silva-Web-Dev.pdf"
+                  download="Hernâni-Carvalho-da-Silva-Web-Dev.pdf"
+                  className="downloadCv"
+                >
+                  Download My CV!
+                </a>
               </div>
             </div>
           </div>
