@@ -923,10 +923,10 @@ p {
   border-radius: 12px;
   padding: 15px;
   text-align: center;
-  width: 90%; /* Adjust width for better layout */
-  min-height: 350px; /* Set a consistent height */
-  max-height: 400px; /* Prevent overflow */
-  overflow: hidden; /* Hide overflow content */
+  width: 76.5%; /* Reduced by 15% from 90% */
+  min-height: 350px;
+  max-height: 400px;
+  overflow: hidden;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -1488,4 +1488,112 @@ textarea:focus {
   font-size: 2rem;
   padding: 10.5px;
   border-radius: 15.75px;
+}
+
+/* --- Update Project Form Styling --- */
+
+.update-project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.update-project-form {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 32px 24px;
+  margin: 32px auto;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: var(--header-text-color);
+}
+
+.update-project-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--header-text-color);
+}
+
+.update-project-form input[type="text"],
+.update-project-form input[type="url"],
+.update-project-form input[type="file"],
+.update-project-form textarea {
+  margin-top: 6px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--header-color);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--header-text-color);
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.update-project-form input[type="text"]:focus,
+.update-project-form input[type="url"]:focus,
+.update-project-form textarea:focus {
+  border: 1.5px solid var(--hovers);
+}
+
+.update-project-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.update-project-form button {
+  font-size: 1.1rem;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-top: 10px;
+  background: var(--header-color);
+  color: var(--header-text-color);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.update-project-form button:hover:not(:disabled) {
+  background: var(--hovers);
+  color: #fff;
+}
+
+.update-project-form .collaborator {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.update-project-form .collaborator h2 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.update-project-form .collaborator ul {
+  margin: 0 0 8px 0;
+  padding-left: 18px;
+}
+
+.update-project-form .collaborator li {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--primary-darkbackground-text);
+}
+
+@media screen and (max-width: 600px) {
+  .update-project-form {
+    padding: 18px 6vw;
+    max-width: 98vw;
+  }
 }

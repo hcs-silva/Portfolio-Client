@@ -131,9 +131,9 @@ const UpdateProject = () => {
   }
 
   return (
-    <div>
+    <div className="update-project-container">
       {" "}
-      <form onSubmit={handleUpdate}>
+      <form onSubmit={handleUpdate} className="update-project-form">
         <label>
           Title:
           <input
