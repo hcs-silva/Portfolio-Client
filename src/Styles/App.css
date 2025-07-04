@@ -1483,3 +1483,9 @@ textarea:focus {
   }
 }
 /* --- End Project Card Dimension Consistency (Refactored) --- */
+
+.landing-page .navButtons a {
+  font-size: 2rem;
+  padding: 10.5px;
+  border-radius: 15.75px;
+}

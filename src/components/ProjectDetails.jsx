@@ -46,14 +46,14 @@ const ProjectDetails = () => {
   }, [projectId]);
 
   const techIcons = {
-    JavaScript: <DiJavascript size="2em"/>,
-    React: <DiReact size="2em"/>,
-    HTML: <DiHtml5 size="2em"/>,
-    CSS: <DiCss3 size="2em"/>,
-    Node: <DiNodejs size="2em"/>,
-    MongoDB: <DiMongodb size="2em"/>,
-    Express: <SiExpress size="2em"/>,
-    GitHub: <IoLogoGithub size="2em"/>,    
+    JavaScript: <DiJavascript size="2em" />,
+    React: <DiReact size="2em" />,
+    HTML: <DiHtml5 size="2em" />,
+    CSS: <DiCss3 size="2em" />,
+    Node: <DiNodejs size="2em" />,
+    MongoDB: <DiMongodb size="2em" />,
+    Express: <SiExpress size="2em" />,
+    GitHub: <IoLogoGithub size="2em" />,
   };
 
   return (
@@ -70,14 +70,21 @@ const ProjectDetails = () => {
               {" "}
               <em>Description:</em> {oneProject.description}
             </p>
-            <p className="collaborators">
-              <em>Collaborators: </em>
+            <div>
+              <p className="collaborators">
+                <em>Collaborators: </em>
+              </p>
               <ul>
-              {oneProject.collaborators.map((collaborator, index) => (
-                <li key={index}>{collaborator.name}<a href={collaborator.link}><BsLinkedin size="0.5em"/></a></li>
-              ))}
+                {oneProject.collaborators.map((collaborator, index) => (
+                  <li key={index}>
+                    {collaborator.name}
+                    <a href={collaborator.link}>
+                      <BsLinkedin size="0.5em" />
+                    </a>
+                  </li>
+                ))}
               </ul>
-            </p>
+            </div>
             <p>
               {" "}
               <em>Technologies Used:</em>{" "}
@@ -111,11 +118,18 @@ const ProjectDetails = () => {
                 <CiGlobe />
               </a>
             </div>
+            <Link
+              to={`/projects/update-project/${projectId}`}
+              id="edit-project"
+            >
+              Edit Project
+            </Link>
           </div>
         </div>
       ) : (
         <div>Loading Project...</div>
       )}
+
       <Link to="/all-projects" id="dashboard">
         Back to Projects
       </Link>

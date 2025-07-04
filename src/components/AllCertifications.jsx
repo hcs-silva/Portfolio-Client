@@ -36,7 +36,7 @@ const AllCertifications = () => {
                 <h3>
                   <em>Provider:</em> {certification.provider}
                 </h3>
-                <button onClick={handleUpdate}>Update Button</button>
+                <Link to={"/update-certification"}>Update Certification</Link>
                 <button onClick={handleDelete}>Delete Certification</button>
               </div>
             </div>

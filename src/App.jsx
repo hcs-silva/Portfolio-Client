@@ -17,6 +17,7 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import UpdateCertification from "./components/UpdateCertification";
 import AllProjects from "./components/AllProjects";
 import Footer from "./components/Footer";
+import UpdateProject from "./components/UpdateProject";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           path="/projects/project-detail/:projectId"
           element={<ProjectDetails />}
         ></Route>
+        <Route path="/projects/update-project/:projectId" element={<UpdateProject/>}></Route>
         <Route path="/update-certification" element= {<AdminRoute><UpdateCertification/></AdminRoute>}></Route>
         <Route path="/dashboard" element={<AdminRoute><DashboardPage /></AdminRoute>}></Route>
         <Route path="/add-project" element={<AdminRoute><AddProjectForm /></AdminRoute>}></Route>
