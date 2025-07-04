@@ -116,7 +116,7 @@ const UpdateProject = () => {
     const updateProject = async () => {
       try {
         const response = await axios.put(
-          `${BACKEND_URL}/projects/update-project/${projectId}`,
+          `${BACKEND_URL}/projects/${projectId}`,
           newProject,
           { headers: { authorization: `Bearer ${webToken}` } }
         );
