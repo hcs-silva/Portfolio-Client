@@ -30,8 +30,8 @@ const LandingPage = () => {
             <div className="layer3">
               <div className="layer4">
                 <a
-                  href="../../assets/Hernâni-Carvalho-da-Silva-Web-Dev.pdf"
-                  download="Hernâni-Carvalho-da-Silva-Web-Dev.pdf"
+                  href="../../assets/Hernâni-Carvalho-da-Silva-Web-Developer.pdf"
+                  download="Hernâni-Carvalho-da-Silva-Web-Developer.pdf"
                   className="downloadCv"
                 >
                   Download My CV!
