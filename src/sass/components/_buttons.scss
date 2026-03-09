@@ -1,0 +1,119 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// =============================================================================
+// BUTTONS & LINKS
+// =============================================================================
+
+// ---- Global button ----
+button {
+  @include btn-ghost;
+  margin: $space-4;
+  font-size: $text-lg;
+}
+
+// ---- Global anchor ----
+a {
+  @include btn-ghost;
+  margin: $space-2;
+  font-size: $text-base;
+}
+
+// ---- Shared hover (lighter override for dark backgrounds) ----
+button:hover,
+a:hover {
+  color: $highlight;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+}
+
+// ---- Utility: transparent icon-only link ----
+.link-icon {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    background: transparent;
+    box-shadow: none;
+    color: $highlight;
+  }
+}
+
+// ---- Back / utility link ----
+.back-to-dash {
+  padding: $space-2 $space-5;
+  font-size: $text-sm;
+  background: $primary;
+  color: $text-light;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: $radius-md;
+  font-weight: 600;
+  transition: $transition-fast;
+  box-shadow: $shadow-sm;
+
+  &:hover {
+    color: $highlight;
+    box-shadow: none;
+    border-color: $bg-light;
+  }
+}
+
+// ---- Download CV button ----
+.downloadCv {
+  color: $text-light;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: $text-xl;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  padding: $space-2;
+  margin: 0;
+
+  &:hover {
+    color: $gold;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+// ---- Nav buttons ----
+.navButtons {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin-right: $space-12;
+
+  a {
+    font-size: $text-xl;
+    padding: $space-3 $space-5;
+    border-radius: $radius-lg;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    &:hover {
+      color: $gold;
+      border-color: $gold;
+    }
+  }
+
+  @include respond-to('xs') {
+    margin-right: $space-8;
+
+    a {
+      font-size: $text-sm;
+      padding: $space-2 $space-3;
+    }
+  }
+}
+
+// ---- Landing page nav buttons (larger) ----
+.landing-page .navButtons a {
+  font-size: $text-2xl;
+  padding: $space-3 $space-6;
+  border-radius: $radius-xl;
+}

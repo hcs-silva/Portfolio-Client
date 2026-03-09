@@ -1,0 +1,33 @@
+@use '../abstracts/variables' as *;
+
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: $line-height-tight;
+  font-weight: 700;
+  color: $text-light;
+}
+
+h1 { font-size: $text-5xl; }
+h2 { font-size: $text-4xl; }
+h3 { font-size: $text-3xl; }
+h4 { font-size: $text-2xl; }
+h5 { font-size: $text-xl; }
+h6 { font-size: $text-lg; }
+
+p {
+  line-height: $line-height-base;
+  color: $text-light;
+}
+
+em {
+  color: $highlight;
+  font-style: italic;
+  font-weight: 600;
+}
+
+strong {
+  font-weight: 700;
+}

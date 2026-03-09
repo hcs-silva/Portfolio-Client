@@ -1,0 +1,93 @@
+@use '../abstracts/variables' as *;
+
+// =============================================================================
+// RESET & ROOT
+// =============================================================================
+
+// CSS custom properties (mirrors SASS variables for runtime access)
+:root {
+  --primary:             #{$primary};
+  --primary-dark:        #{$primary-dark};
+  --primary-light:       #{$primary-light};
+  --accent:              #{$accent};
+  --accent-hover:        #{$accent-hover};
+  --highlight:           #{$highlight};
+  --gold:                #{$gold};
+
+  --text-light:          #{$text-light};
+  --text-dark:           #{$text-dark};
+  --text-secondary:      #{$text-secondary};
+  --text-muted:          #{$text-muted};
+
+  --bg-app:              #{$bg-app};
+  --bg-light:            #{$bg-light};
+  --bg-card:             #{$bg-card};
+
+  // Legacy variable names kept for backward compatibility
+  --header-color:              #{$primary};
+  --header-text-color:         #{$text-light};
+  --button-highlight:          #{$accent};
+  --hovers:                    #{$highlight};
+  --icon-accents:              #{$gold};
+  --secondary-text:            #{$text-secondary};
+  --background-and-borders:    #{$bg-light};
+  --primary-text:              #{$text-dark};
+  --secondary-muted-sections:  #{$text-muted};
+  --primary-darkbackground-text: #{$text-light};
+  --hover-activestate:         #{$accent};
+  --muted-disabled-text:       #{$bg-light};
+
+  --font-family:    #{$font-system};
+  --radius-md:      #{$radius-md};
+  --radius-lg:      #{$radius-lg};
+  --transition:     #{$transition-base};
+}
+
+// Box sizing
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Reset margins and paddings
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// Base HTML
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-system;
+  background-color: $primary;
+  color: $text-light;
+  line-height: $line-height-base;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Accessible focus ring
+:focus-visible {
+  outline: 2px solid $gold;
+  outline-offset: 2px;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Lists
+ul,
+ol {
+  list-style: none;
+}

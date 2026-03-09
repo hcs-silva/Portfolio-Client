@@ -1,0 +1,166 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// =============================================================================
+// PROJECTS PAGES
+// =============================================================================
+
+// ---- All Projects listing ----
+.projectsPage {
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+  padding: $space-4 $space-4 $space-8;
+  color: $text-light;
+  font-size: $text-4xl;
+  animation: fadeInUp 0.5s ease both;
+
+  h1 {
+    @include section-heading;
+  }
+}
+
+// ---- Project Detail ----
+.projectDetail {
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 5vh);
+  padding: $space-6 $space-4;
+  animation: fadeInUp 0.5s ease both;
+
+  h1 {
+    color: $text-light;
+    font-size: $text-4xl;
+    margin: $space-3 0;
+
+    @include respond-to('md') { font-size: $text-3xl; }
+    @include respond-to('xs') { font-size: $text-2xl; }
+  }
+}
+
+// ---- Project detail sections ----
+.top-detail {
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+  gap: $space-4;
+
+  img {
+    height: 320px;
+    border-radius: $radius-2xl;
+    box-shadow: $shadow-xl;
+    object-fit: cover;
+
+    @include respond-to('md') { height: 200px; }
+    @include respond-to('xs') { height: 150px; }
+  }
+}
+
+.bottom-detail {
+  @include flex-column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: $space-6;
+  gap: $space-3;
+
+  img {
+    height: 28px;
+    margin: $space-4 0;
+  }
+
+  p {
+    color: $text-light;
+    font-size: $text-lg;
+    align-items: center;
+    margin: $space-1;
+
+    @include respond-to('xs') { font-size: $text-base; }
+  }
+
+  em {
+    color: $highlight;
+    font-size: $text-2xl;
+    font-weight: 700;
+  }
+
+  a {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    height: auto;
+    padding: 0;
+    margin: 0;
+
+    &:hover {
+      background: transparent;
+      box-shadow: none;
+      color: $highlight;
+    }
+  }
+
+  ul {
+    display: flex;
+    gap: $space-2;
+    margin-left: $space-5;
+  }
+
+  li {
+    color: $text-light;
+    font-size: $text-lg;
+    font-weight: 700;
+
+    @include respond-to('xs') { font-size: $text-base; }
+  }
+
+  span {
+    color: $text-light;
+    font-size: $text-xl;
+    margin: $space-1;
+  }
+
+  @include respond-to('md') {
+    margin-left: 0;
+    margin-top: $space-4;
+    align-items: center;
+  }
+}
+
+.collaborators {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+// Links row (GitHub / Live)
+.links {
+  margin-top: $space-3;
+  display: flex;
+  gap: $space-2;
+
+  a {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    font-size: $text-2xl;
+    color: $text-light;
+    height: auto;
+
+    &:hover {
+      color: $gold;
+      box-shadow: none;
+      background: transparent;
+    }
+  }
+}
+
+// IDs used in ProjectDetails
+#dashboard {
+  margin: $space-5 auto 0;
+}
+
+#edit-project {
+  margin-top: $space-4;
+}
