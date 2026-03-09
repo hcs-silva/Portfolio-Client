@@ -1,5 +1,5 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 // =============================================================================
 // ABOUT PAGE
@@ -8,7 +8,8 @@
 .about {
   @include flex-column;
   align-items: center;
-  padding: $space-8 $space-4;
+  width: 100%;
+  padding: $space-8 $space-4 $space-12;
   animation: fadeInUp 0.5s ease both;
 
   h1 {
@@ -19,48 +20,55 @@
     text-align: center;
     margin-bottom: $space-4;
 
-    @include respond-to('md') { font-size: $text-5xl; }
-    @include respond-to('xs') { font-size: $text-4xl; }
+    @include respond-to("md") {
+      font-size: $text-5xl;
+    }
+    @include respond-to("xs") {
+      font-size: $text-4xl;
+    }
   }
 }
 
 #topHR {
-  width: 360px;
+  width: min(100%, 360px);
   margin-bottom: $space-12;
 
-  @include respond-to('xs') {
-    width: 160px;
+  @include respond-to("xs") {
+    width: min(100%, 220px);
     margin-bottom: $space-6;
   }
 }
 
 // ---- Two-column description layout ----
 .description {
-  display: flex;
-  gap: $space-6;
-  width: 100%;
-  max-width: 1100px;
-  margin-bottom: $space-12;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 1fr);
+  align-items: start;
+  gap: $space-10;
+  width: min(100%, 1100px);
+  margin-bottom: $space-10;
 
-  @include respond-to('md') {
-    flex-direction: column;
+  @include respond-to("lg") {
+    gap: $space-8;
+  }
+
+  @include respond-to("md") {
+    grid-template-columns: 1fr;
   }
 }
 
 // ---- Left: About me text ----
 .about-me {
-  flex: 1;
-  width: 33vw;
-  margin: 0 $space-12;
+  width: 100%;
 
   p {
     color: $text-light;
-    font-size: $text-xl;
+    font-size: $text-lg;
     line-height: $line-height-base;
-    margin-bottom: $space-2;
+    margin-bottom: $space-3;
 
-    @include respond-to('xs') {
-      font-size: $text-xs;
+    @include respond-to("xs") {
+      font-size: $text-base;
     }
   }
 
@@ -70,140 +78,372 @@
     border-color: $highlight;
     opacity: 0.6;
   }
-
-  @include respond-to('md') {
-    width: 100%;
-    margin: 0 $space-5;
-  }
-
-  @include respond-to('xs') {
-    width: 40vw;
-    margin: 0 $space-5;
-  }
 }
 
 // ---- Right column ----
 .column {
   @include flex-column;
-  align-items: center;
-  flex: 1;
+  gap: $space-8;
+  width: 100%;
 }
 
 // ---- Skills section ----
 .skills {
-  width: 33vw;
-  margin: 0 $space-12;
+  width: 100%;
+  @include glass(0.08);
+  border-radius: $radius-xl;
+  padding: $space-6;
 
   p {
     color: $text-light;
-    font-size: $text-xl;
-    margin-bottom: $space-6;
+    font-size: $text-lg;
+    margin-bottom: $space-5;
     line-height: $line-height-base;
 
-    @include respond-to('xs') {
-      font-size: $text-xs * 1.1;
-      margin-bottom: $space-6;
+    @include respond-to("xs") {
+      font-size: $text-base;
+      margin-bottom: $space-4;
     }
   }
 
-  @include respond-to('xs') {
-    width: 33vw;
-    margin: 0;
+  hr {
+    margin: $space-4 0 $space-6;
+    border-color: $highlight;
+    opacity: 0.6;
+  }
+
+  @include respond-to("xs") {
+    padding: $space-4;
   }
 }
 
 .list {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: $space-4;
 
-  ul p {
-    font-size: $text-lg;
-    color: $text-light;
-    font-weight: 600;
-    margin-bottom: $space-2;
+  @include respond-to("sm") {
+    grid-template-columns: 1fr;
+  }
+}
 
-    @include respond-to('xs') {
+.soft-skills,
+.hard-skills {
+  @include glass(0.06);
+  border-radius: $radius-lg;
+  padding: $space-4;
+  margin: 0;
+  width: 100%;
+
+  h2 {
+    font-size: $text-base;
+    color: $gold;
+    margin-bottom: $space-2;
+    line-height: $line-height-tight;
+
+    @include respond-to("xs") {
       font-size: $text-sm;
     }
   }
 
-  ul li {
+  li {
     color: $text-light;
     font-size: $text-base;
     font-weight: 500;
     padding: $space-1 0;
+    line-height: $line-height-base;
 
-    @include respond-to('xs') {
-      font-size: $text-xs;
+    @include respond-to("xs") {
+      font-size: $text-sm;
     }
-  }
-}
-
-.soft-skills {
-  width: 40%;
-  border-right: 3px solid $gold;
-  padding-right: $space-4;
-  margin: $space-5;
-
-  @include respond-to('xs') {
-    width: 50%;
-    border-right: none;
-    margin: $space-2;
-  }
-}
-
-.hard-skills {
-  width: 60%;
-  margin: $space-5;
-
-  @include respond-to('xs') {
-    width: 50%;
-    margin: $space-2;
   }
 }
 
 // ---- Contacts row ----
 .contacts {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin-top: $space-16;
-  width: 60%;
-  gap: $space-6;
+  gap: $space-4;
+  width: 100%;
+  flex-wrap: wrap;
 
-  a {
-    background: transparent;
-    border: none;
+  a,
+  .share-button {
+    @include flex-center;
+    width: 48px;
+    height: 48px;
+    border-radius: $radius-full;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.05);
     box-shadow: none;
-    height: auto;
     padding: 0;
     margin: 0;
+    transition: $transition-fast;
 
     &:hover {
-      background: transparent;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: $gold;
       box-shadow: none;
     }
   }
 
-  @include respond-to('xs') {
-    margin-top: $space-12;
-    width: 60%;
+  .share-button {
+    cursor: pointer;
+  }
+
+  @include respond-to("xs") {
+    gap: $space-3;
   }
 }
 
 .contactIcons {
   color: $gold;
-  font-size: $text-2xl;
+  font-size: $text-xl;
   transition: $transition-fast;
+}
 
-  &:hover {
-    color: $highlight;
-    cursor: pointer;
+.contacts a:hover .contactIcons,
+.contacts .share-button:hover .contactIcons {
+  color: $highlight;
+}
+
+.about-home-link {
+  margin-top: $space-4;
+}
+
+// ---- Share fallback modal ----
+.share-modal {
+  position: fixed;
+  inset: 0;
+  @include flex-center;
+  padding: $space-4;
+  background: rgba(0, 0, 0, 0.62);
+  z-index: 1100;
+}
+
+.share-modal__panel {
+  width: min(440px, 100%);
+  background: linear-gradient(180deg, $primary 0%, $primary-dark 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: $radius-xl;
+  box-shadow: $shadow-xl;
+  padding: $space-6;
+
+  p {
+    margin-bottom: $space-3;
+    font-size: $text-base;
+  }
+
+  @include respond-to("xs") {
+    padding: $space-4;
   }
 }
 
-// Home link on About page
-.about > a {
-  margin-top: $space-8;
+.share-modal__input {
+  width: 100%;
+  padding: $space-2 $space-3;
+  border-radius: $radius-sm;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: $text-light;
+  font-size: $text-sm;
+
+  &:focus-visible {
+    outline: 2px solid $gold;
+    outline-offset: 2px;
+  }
+}
+
+.share-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-2;
+  margin-top: $space-4;
+
+  @include respond-to("xs") {
+    justify-content: stretch;
+  }
+}
+
+.share-modal__button {
+  font-size: $text-sm;
+  margin: 0;
+  padding: $space-2 $space-4;
+}
+
+.share-modal__button--primary {
+  background: $accent;
+  border-color: transparent;
+
+  &:hover {
+    background: $accent-hover;
+    color: $text-light;
+  }
+}
+
+.share-modal__button--secondary {
+  background: rgba(255, 255, 255, 0.08);
+
+  &:hover {
+    color: $highlight;
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+// ---- Compact layout tuning for very small phones ----
+@media screen and (max-width: 360px) {
+  .about {
+    padding: $space-6 $space-3 $space-8;
+
+    h1 {
+      font-size: $text-3xl;
+      margin-bottom: $space-3;
+    }
+  }
+
+  #topHR {
+    width: min(100%, 180px);
+    margin-bottom: $space-5;
+  }
+
+  .description {
+    gap: $space-5;
+    margin-bottom: $space-6;
+  }
+
+  .about-me p,
+  .skills p {
+    font-size: $text-sm;
+  }
+
+  .column {
+    gap: $space-5;
+  }
+
+  .skills {
+    padding: $space-3;
+
+    hr {
+      margin: $space-3 0 $space-4;
+    }
+  }
+
+  .list {
+    gap: $space-3;
+  }
+
+  .soft-skills,
+  .hard-skills {
+    padding: $space-3;
+  }
+
+  .contacts {
+    gap: $space-2;
+
+    a,
+    .share-button {
+      width: 42px;
+      height: 42px;
+    }
+  }
+
+  .contactIcons {
+    font-size: $text-lg;
+  }
+
+  .share-modal {
+    padding: $space-2;
+  }
+
+  .share-modal__panel {
+    padding: $space-3;
+  }
+
+  .share-modal__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .share-modal__button {
+    width: 100%;
+  }
+}
+
+// ---- Ultra-compact tuning for 320px devices ----
+@media screen and (max-width: 320px) {
+  .about {
+    padding: $space-5 $space-2 $space-6;
+
+    h1 {
+      font-size: $text-2xl;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  #topHR {
+    width: min(100%, 150px);
+    margin-bottom: $space-4;
+  }
+
+  .description {
+    gap: $space-4;
+    margin-bottom: $space-5;
+  }
+
+  .about-me p,
+  .skills p {
+    font-size: $text-xs;
+    line-height: 1.55;
+  }
+
+  .skills,
+  .soft-skills,
+  .hard-skills {
+    padding: $space-2;
+  }
+
+  .soft-skills h2,
+  .hard-skills h2 {
+    font-size: $text-xs;
+    margin-bottom: $space-1;
+  }
+
+  .soft-skills li,
+  .hard-skills li {
+    font-size: $text-xs;
+    padding: 0;
+  }
+
+  .contacts {
+    gap: $space-1;
+
+    a,
+    .share-button {
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  .contactIcons {
+    font-size: $text-base;
+  }
+
+  .about-home-link {
+    width: 100%;
+    text-align: center;
+  }
+
+  .share-modal {
+    padding: $space-1;
+  }
+
+  .share-modal__panel {
+    padding: $space-2;
+  }
+
+  .share-modal__input,
+  .share-modal__button {
+    font-size: $text-xs;
+  }
 }
