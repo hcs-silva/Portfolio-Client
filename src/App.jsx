@@ -7,7 +7,7 @@ import DashboardPage from "./Pages/DashboardPage";
 import LandingPage from "./Pages/LandingPage";
 
 import ProjectDetails from "./components/ProjectDetails";
-import "./Styles/App.css";
+import "./sass/main.scss";
 import { Routes, Route } from "react-router-dom";
 import SignupPage from "./Pages/SignupPage";
 import LoginPage from "./Pages/LoginPage";

@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// =============================================================================
+// SPINNER
+// =============================================================================
+
+.spinner {
+  height: 100vh;
+  width: 100vw;
+  @include flex-column-center;
+  gap: $space-8;
+  background: $primary;
+
+  a {
+    padding: $space-6 $space-12;
+    border-radius: $radius-xl;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: $primary;
+    color: $text-light;
+    font-weight: 700;
+    font-size: $text-2xl;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      box-shadow: none;
+      color: $highlight;
+    }
+  }
+}

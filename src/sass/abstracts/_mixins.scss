@@ -1,0 +1,149 @@
+@use 'variables' as *;
+
+// =============================================================================
+// MIXINS
+// =============================================================================
+
+// Responsive breakpoints (mobile-first with max-width queries)
+@mixin respond-to($bp) {
+  @if $bp == 'xs' {
+    @media screen and (max-width: #{$bp-xs}) { @content; }
+  } @else if $bp == 'sm' {
+    @media screen and (max-width: #{$bp-sm}) { @content; }
+  } @else if $bp == 'md' {
+    @media screen and (max-width: #{$bp-md}) { @content; }
+  } @else if $bp == 'lg' {
+    @media screen and (max-width: #{$bp-lg}) { @content; }
+  } @else if $bp == 'xl' {
+    @media screen and (max-width: #{$bp-xl}) { @content; }
+  }
+}
+
+// Flexbox helpers
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+}
+
+// Glass morphism surface
+@mixin glass($opacity: 0.1) {
+  background: rgba(255, 255, 255, $opacity);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid $glass-border;
+  box-shadow: $glass-shadow;
+}
+
+// Card with glass morphism and hover lift
+@mixin card($w: $card-width) {
+  @include glass(0.08);
+  border-radius: $radius-xl;
+  padding: $space-5;
+  width: $w;
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-xl;
+    background: $bg-card-hover;
+  }
+}
+
+// Primary button
+@mixin btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-3 $space-6;
+  border-radius: $radius-md;
+  font-weight: 600;
+  font-size: $text-base;
+  background: $accent;
+  color: $text-light;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: $transition-fast;
+  letter-spacing: 0.02em;
+
+  &:hover,
+  &:focus-visible {
+    background: $accent-hover;
+    box-shadow: $shadow-glow;
+    color: $text-light;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $gold;
+    outline-offset: 2px;
+  }
+}
+
+// Ghost/outline button
+@mixin btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-3 $space-6;
+  border-radius: $radius-md;
+  font-weight: 600;
+  font-size: $text-base;
+  background: transparent;
+  color: $text-light;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  text-decoration: none;
+  transition: $transition-fast;
+  letter-spacing: 0.02em;
+
+  &:hover,
+  &:focus-visible {
+    background: $bg-card-hover;
+    border-color: $text-light;
+    color: $gold;
+    box-shadow: $shadow-sm;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $gold;
+    outline-offset: 2px;
+  }
+}
+
+// Section heading
+@mixin section-heading {
+  color: $text-light;
+  font-size: $text-4xl;
+  font-weight: 700;
+  margin: $space-8 0 $space-6;
+  text-align: center;
+  letter-spacing: -0.02em;
+  line-height: $line-height-tight;
+
+  @include respond-to('md') {
+    font-size: $text-3xl;
+  }
+
+  @include respond-to('xs') {
+    font-size: $text-2xl;
+  }
+}
+
+// Container wrapper
+@mixin container($max: 1200px) {
+  max-width: $max;
+  margin: 0 auto;
+  padding: 0 $space-4;
+}

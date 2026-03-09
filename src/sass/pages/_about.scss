@@ -1,0 +1,209 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// =============================================================================
+// ABOUT PAGE
+// =============================================================================
+
+.about {
+  @include flex-column;
+  align-items: center;
+  padding: $space-8 $space-4;
+  animation: fadeInUp 0.5s ease both;
+
+  h1 {
+    color: $text-light;
+    font-size: $text-6xl;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-align: center;
+    margin-bottom: $space-4;
+
+    @include respond-to('md') { font-size: $text-5xl; }
+    @include respond-to('xs') { font-size: $text-4xl; }
+  }
+}
+
+#topHR {
+  width: 360px;
+  margin-bottom: $space-12;
+
+  @include respond-to('xs') {
+    width: 160px;
+    margin-bottom: $space-6;
+  }
+}
+
+// ---- Two-column description layout ----
+.description {
+  display: flex;
+  gap: $space-6;
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: $space-12;
+
+  @include respond-to('md') {
+    flex-direction: column;
+  }
+}
+
+// ---- Left: About me text ----
+.about-me {
+  flex: 1;
+  width: 33vw;
+  margin: 0 $space-12;
+
+  p {
+    color: $text-light;
+    font-size: $text-xl;
+    line-height: $line-height-base;
+    margin-bottom: $space-2;
+
+    @include respond-to('xs') {
+      font-size: $text-xs;
+    }
+  }
+
+  // HR rule (Flowbite HR component)
+  hr {
+    margin: $space-4 0;
+    border-color: $highlight;
+    opacity: 0.6;
+  }
+
+  @include respond-to('md') {
+    width: 100%;
+    margin: 0 $space-5;
+  }
+
+  @include respond-to('xs') {
+    width: 40vw;
+    margin: 0 $space-5;
+  }
+}
+
+// ---- Right column ----
+.column {
+  @include flex-column;
+  align-items: center;
+  flex: 1;
+}
+
+// ---- Skills section ----
+.skills {
+  width: 33vw;
+  margin: 0 $space-12;
+
+  p {
+    color: $text-light;
+    font-size: $text-xl;
+    margin-bottom: $space-6;
+    line-height: $line-height-base;
+
+    @include respond-to('xs') {
+      font-size: $text-xs * 1.1;
+      margin-bottom: $space-6;
+    }
+  }
+
+  @include respond-to('xs') {
+    width: 33vw;
+    margin: 0;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: space-around;
+  gap: $space-4;
+
+  ul p {
+    font-size: $text-lg;
+    color: $text-light;
+    font-weight: 600;
+    margin-bottom: $space-2;
+
+    @include respond-to('xs') {
+      font-size: $text-sm;
+    }
+  }
+
+  ul li {
+    color: $text-light;
+    font-size: $text-base;
+    font-weight: 500;
+    padding: $space-1 0;
+
+    @include respond-to('xs') {
+      font-size: $text-xs;
+    }
+  }
+}
+
+.soft-skills {
+  width: 40%;
+  border-right: 3px solid $gold;
+  padding-right: $space-4;
+  margin: $space-5;
+
+  @include respond-to('xs') {
+    width: 50%;
+    border-right: none;
+    margin: $space-2;
+  }
+}
+
+.hard-skills {
+  width: 60%;
+  margin: $space-5;
+
+  @include respond-to('xs') {
+    width: 50%;
+    margin: $space-2;
+  }
+}
+
+// ---- Contacts row ----
+.contacts {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: $space-16;
+  width: 60%;
+  gap: $space-6;
+
+  a {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    height: auto;
+    padding: 0;
+    margin: 0;
+
+    &:hover {
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+
+  @include respond-to('xs') {
+    margin-top: $space-12;
+    width: 60%;
+  }
+}
+
+.contactIcons {
+  color: $gold;
+  font-size: $text-2xl;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $highlight;
+    cursor: pointer;
+  }
+}
+
+// Home link on About page
+.about > a {
+  margin-top: $space-8;
+}
