@@ -1,0 +1,182 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// =============================================================================
+// CARDS  (Certification & Project)
+// =============================================================================
+
+// ---- Shared card base ----
+.certification-card,
+.project-card {
+  @include card($card-width);
+  @include flex-column;
+  align-items: center;
+  min-height: $card-min-height;
+  max-height: $card-max-height;
+  overflow: hidden;
+
+  // Shared image style
+  img {
+    width: 100%;
+    height: 170px;
+    min-height: 170px;
+    max-height: 170px;
+    object-fit: cover;
+    border-radius: $radius-md;
+    margin-bottom: $space-4;
+  }
+
+  // Inner wrapper div
+  > div {
+    @include flex-column;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    @include glass(0.10);
+    border-radius: $radius-md;
+    padding: $space-4;
+    transition: $transition-base;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+}
+
+// ---- Certification card specifics ----
+.certification-card {
+  h3 {
+    color: $text-light;
+    font-size: $text-lg;
+    margin: $space-2 0 $space-1;
+    text-align: center;
+  }
+
+  p {
+    font-size: $text-sm;
+    color: $text-light;
+    margin: $space-1 0;
+    text-align: center;
+  }
+
+  em {
+    color: $highlight;
+    font-size: $text-lg;
+  }
+
+  button {
+    padding: $space-2 $space-4;
+    margin: $space-1;
+    border-radius: $radius-md;
+    font-size: $text-sm;
+    font-weight: 600;
+    background: $primary;
+    color: $text-light;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: $shadow-sm;
+    max-width: 100%;
+
+    &:hover {
+      box-shadow: none;
+      color: $highlight;
+    }
+  }
+}
+
+// ---- Project card specifics ----
+.project-card {
+  width: $card-width;
+  min-width: $card-width;
+  max-width: $card-width;
+  min-height: $card-min-height;
+  max-height: $card-max-height;
+
+  h2 {
+    color: $text-light;
+    font-size: $text-xl;
+    margin-bottom: $space-3;
+    text-align: center;
+  }
+
+  > div {
+    width: 100%;
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+}
+
+// ---- Project detail card ----
+.project-detail-card {
+  @include glass(0.08);
+  border-radius: $radius-xl;
+  padding: $space-6;
+  text-align: center;
+  width: 80%;
+  min-height: 350px;
+  max-height: none;
+  display: flex;
+  gap: $space-8;
+  transition: $transition-base;
+
+  h2 {
+    color: $text-light;
+    font-size: $text-2xl;
+    margin-bottom: $space-6;
+  }
+
+  @include respond-to('md') {
+    flex-direction: column;
+    width: 95%;
+    max-height: none;
+    gap: $space-4;
+  }
+}
+
+// ---- Container grids ----
+.certificationsContainer,
+.projectsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-5;
+  padding: $space-5;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @include respond-to('lg') {
+    > * {
+      flex: 1 1 45%;
+      max-width: 45%;
+    }
+  }
+
+  @include respond-to('md') {
+    > * {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+// ---- Responsive card adjustments ----
+@include respond-to('md') {
+  .certification-card,
+  .project-card {
+    width: 95vw;
+    min-width: 0;
+    max-width: 95vw;
+    min-height: 220px;
+    max-height: none;
+    padding: $space-4;
+
+    img {
+      height: 120px;
+      min-height: 120px;
+      max-height: 120px;
+    }
+  }
+
+  .project-card {
+    min-width: 0;
+  }
+}

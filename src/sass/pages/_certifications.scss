@@ -1,0 +1,18 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// =============================================================================
+// CERTIFICATIONS PAGE
+// =============================================================================
+
+.certificationsPage {
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+  padding: $space-4 $space-4 $space-8;
+  animation: fadeInUp 0.5s ease both;
+
+  h1 {
+    @include section-heading;
+  }
+}

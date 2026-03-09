@@ -1,0 +1,35 @@
+// =============================================================================
+// MAIN SASS ENTRY POINT
+// Imports all partials in the correct order.
+// Vite compiles this directly; the `sass:build` npm script compiles it to
+// src/Styles/App.css for standalone environments.
+// =============================================================================
+
+// 1. Abstracts (no output — just config)
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
+// 2. Base styles (reset, typography, root variables)
+@use 'base/reset';
+@use 'base/typography';
+
+// 3. Animations (keyframes)
+@use 'components/animations';
+
+// 4. Layout
+@use 'layout/layout';
+
+// 5. Components
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/forms';
+@use 'components/footer';
+@use 'components/spinner';
+
+// 6. Pages
+@use 'pages/landing';
+@use 'pages/about';
+@use 'pages/auth';
+@use 'pages/certifications';
+@use 'pages/projects';
+@use 'pages/dashboard';
