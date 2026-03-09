@@ -1,107 +1,113 @@
-# Portfolio_Website
+# Portfolio Website Client
 
-=====================
-
-## ID: `portfolio-website`
+Frontend client for the portfolio platform, built with React + Vite.
 
 ## Overview
 
----
+This repository contains the public portfolio experience and the authenticated admin UI for managing projects and certifications.
 
-This is a full-stack portfolio website built using React, Vite, and Express.js. The website allows users to view the developer's projects, certifications, and about page, and includes an admin dashboard for managing content.
+Main capabilities:
 
-## Features
+- Responsive landing, about, projects, and certifications pages
+- Authentication flow (signup/login/logout)
+- Admin-only dashboard and content management routes
+- Project image uploads through Cloudinary
+- Route guards for admin access
+- SEO static assets (`robots.txt`, `sitemap.xml`)
 
----
+## Tech Stack
 
-- Modern responsive design with consistent card and form styling
-- View all projects and certifications
-- Project and certification detail pages
-- Add, update, and delete projects and certifications (admin only)
-- Upload project images (Cloudinary integration)
-- Collaborator management for projects (add/remove with LinkedIn links)
-- User authentication (signup, login, protected admin routes)
-- Dashboard for admin content management
-- About page and landing page
-- 404 Not Found page for invalid routes
-- Client-side routing with React Router
-- Mobile-friendly and accessible UI
+- React 18
+- Vite 6
+- React Router
+- Axios
+- Sass (SCSS architecture under `src/sass`)
+- Flowbite React + React Icons
 
-## Client-Side
+## Prerequisites
 
----
+- Node.js 18+
+- A running backend API (default expected at `http://localhost:5005`)
 
-- Built using React and Vite
-- Uses React Router for client-side routing
-- Includes pages for:
-  - Landing Page
-  - About Page
-  - Projects Page
-  - Certifications Page
-  - Dashboard Page (with links to add projects and certifications)
-  - Project Details Page
-  - Certification Details Page
-  - Login and Signup Pages
-  - 404 Not Found Page
-- Uses CSS for styling (with custom themes and responsive layouts)
+## Environment Variables
 
-## Server-Side
+Create a `.env` file at the project root:
 
----
+```env
+VITE_BACKEND_URL=http://localhost:5005
+```
 
-- Built using Express.js
-- Uses Mongoose for MongoDB database interactions
-- Includes routes for:
-  - Projects (CRUD)
-  - Certifications (CRUD)
-  - Users (authentication)
-  - Index (root route)
-- Uses error handling middleware to catch and handle errors
+If not set, the app falls back to `http://localhost:5005`.
 
-## Database
+## Install and Run
 
----
+```bash
+npm install
+npm run dev
+```
 
-- Uses MongoDB as the database
-- Includes models for:
-  - Users
-  - Projects
-  - Certifications
+Vite default local URL is typically `http://localhost:5173`.
 
-## Getting Started
+## Scripts
 
----
+- `npm run dev`: Start development server
+- `npm run build`: Build production bundle
+- `npm run preview`: Preview production build locally
+- `npm run lint`: Run ESLint
+- `npm run sass:build`: Compile `src/sass/main.scss` to `src/Styles/App.css`
+- `npm run sass:watch`: Watch and compile SCSS continuously
 
-1. Clone the repository
-2. Install dependencies using `npm install` or `yarn install`
-3. Start the server using `npm start` or `yarn start`
-4. Start the client using `npm run dev` or `yarn dev`
-5. Open the website in your browser at `http://localhost:3000`
+## Route Map
 
-## API Endpoints
+Public routes:
 
----
+- `/`
+- `/about`
+- `/all-projects`
+- `/certifications`
+- `/login`
+- `/signup`
 
-- `/api/projects`: Get all projects
-- `/api/certifications`: Get all certifications
-- `/api/index`: Root route
-- `/api/users`: User authentication routes
+Authenticated non-admin route:
+
+- `/home`
+
+Admin-only routes:
+
+- `/dashboard`
+- `/add-project`
+- `/add-certification`
+- `/update-certification`
+- `/projects/update-project/:projectId`
+- `/dashboard/all-certifications`
+
+Dynamic public route:
+
+- `/projects/project-detail/:projectId`
+
+Fallback route:
+
+- `*` (Not Found)
+
+## Styling
+
+- Source styles are organized in `src/sass/` and imported via `src/sass/main.scss`.
+- Generated CSS output target is `src/Styles/App.css` for environments using the Sass watcher/build scripts.
 
 ## Deployment Notes
 
----
+- This project is configured for SPA routing on static hosts.
+- `public/_redirects` handles client-side route fallback on Netlify.
+- `public/robots.txt` and `public/sitemap.xml` are included for crawlability.
 
-- For static hosting (Netlify, Vercel, etc.), ensure SPA fallback is configured for React Router (see Vite and host documentation).
-- Image uploads use Cloudinary; set up your Cloudinary credentials in environment variables.
+## Related Backend
 
-## Contributing
+This client expects a separate backend service that provides:
 
----
-
-Contributions are welcome! Please submit a pull request with your changes.
+- Auth endpoints (`/users/...`)
+- Projects endpoints (`/projects/...`)
+- Certifications endpoints (`/certifications/...`)
 
 ## License
 
----
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+MIT
