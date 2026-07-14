@@ -6,7 +6,6 @@ import Footer from "./Footer";
 import axios from "axios";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5005";
-const webToken = localStorage.getItem("authToken");
 
 const AddProjectForm = () => {
   const [projectTitle, setProjectTitle] = useState("");
@@ -37,6 +36,7 @@ const AddProjectForm = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    const webToken = localStorage.getItem("authToken");
 
     const newTechnologies = technologies
       .split(",")
@@ -60,7 +60,7 @@ const AddProjectForm = () => {
       const response = await axios.post(
         `${BACKEND_URL}/projects/`,
         newProject,
-        { headers: { authorization: `${webToken}` } }
+        { headers: { authorization: `Bearer ${webToken}` } }
       );
       if (response) {
         alert("Project Added Sucessfully");
