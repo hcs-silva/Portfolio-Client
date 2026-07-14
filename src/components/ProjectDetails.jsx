@@ -76,13 +76,18 @@ const ProjectDetails = () => {
             </div>
 
             <div className="detail-block">
+              <h3>Status</h3>
+              <p>{oneProject.status}</p>
+            </div>
+
+            <div className="detail-block">
               <h3>Collaborators</h3>
               <ul className="collaborators-list">
                 {oneProject.collaborators.map((collaborator, index) => (
                   <li key={index}>
                     {collaborator.name}
                     <a
-                      href={collaborator.link}
+                      href={collaborator.linkedin}
                       target="_blank"
                       rel="noreferrer"
                       aria-label={`LinkedIn profile for ${collaborator.name}`}

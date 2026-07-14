@@ -20,6 +20,7 @@ const AddProjectForm = () => {
   const [imageFile, setImageFile] = useState(null); // File state
   const [uploading, setUploading] = useState("");
   const [projectDate, setProjectDate] = useState("");
+  const [projectStatus, setProjectStatus] = useState("development");
 
   const nav = useNavigate();
 
@@ -27,7 +28,7 @@ const AddProjectForm = () => {
     e.preventDefault();
     const newCollaborator = {
       name: collaboratorName,
-      link: collaboratorLink,
+      linkedin: collaboratorLink,
     };
     setCollaboratorList([...collaboratorList, newCollaborator]);
     setCollaboratorName("");
@@ -48,6 +49,7 @@ const AddProjectForm = () => {
       thumbnail: projectThumbnail,
       collaborators: collaboratorList,
       technologies: newTechnologies,
+      status: projectStatus,
       githubLink: github,
       liveLink: liveLink,
       description: projectDescription,
@@ -62,6 +64,8 @@ const AddProjectForm = () => {
         newProject,
         { headers: { authorization: `Bearer ${webToken}` } },
       );
+
+      console.log(response);
       if (response) {
         alert("Project Added Sucessfully");
         setProjectTitle("");
@@ -73,6 +77,7 @@ const AddProjectForm = () => {
         setImageFile(null);
         setUploading("");
         setProjectDate("");
+        setProjectStatus("development");
 
         nav("/dashboard");
       }
@@ -155,7 +160,7 @@ const AddProjectForm = () => {
               {collaboratorList.map((collaborator, index) => (
                 <li key={index}>
                   {collaborator.name}{" "}
-                  <a href={collaborator.link}>
+                  <a href={collaborator.linkedin}>
                     <BsLinkedin size="0.5em" />
                   </a>
                 </li>
@@ -181,6 +186,18 @@ const AddProjectForm = () => {
             </label>
             <button onClick={handleAddCollaborator}>Add Collaborator</button>
           </div>
+          <label>
+            Status:
+            <select
+              className="status-select"
+              value={projectStatus}
+              onChange={(e) => setProjectStatus(e.target.value)}
+            >
+              <option value="development">Development</option>
+              <option value="deployed">Deployed</option>
+              <option value="planned">Planned</option>
+            </select>
+          </label>
           <label>
             GitHub Link:
             <input

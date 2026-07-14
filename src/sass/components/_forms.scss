@@ -21,6 +21,7 @@ input[type="password"],
 input[type="url"],
 input[type="date"],
 input[type="file"],
+select,
 textarea {
   width: 100%;
   border: 1px solid rgba(29, 58, 110, 0.22);
@@ -46,6 +47,25 @@ textarea {
 textarea {
   resize: vertical;
   min-height: 110px;
+}
+
+.status-select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, $accent 50%),
+    linear-gradient(135deg, $accent 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% + 1px),
+    calc(100% - 12px) calc(50% + 1px);
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+  padding-right: $space-10;
+
+  &:hover {
+    border-color: rgba(17, 85, 204, 0.45);
+  }
 }
 
 .auth-shell,

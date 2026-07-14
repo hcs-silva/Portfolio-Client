@@ -21,6 +21,7 @@ const UpdateProject = () => {
   const [imageFile, setImageFile] = useState(null); // File state
   const [uploading, setUploading] = useState("");
   const [projectDate, setProjectDate] = useState("");
+  const [projectStatus, setProjectStatus] = useState("development");
   const [formMessage, setFormMessage] = useState("");
 
   // Fetch project details and populate form fields
@@ -53,6 +54,7 @@ const UpdateProject = () => {
         setLiveLink(data.foundProject.liveLink || "");
         setProjectDescription(data.foundProject.description || "");
         setProjectDate(data.foundProject.date || "");
+        setProjectStatus(data.foundProject.status || "development");
       } catch (error) {
         console.error("Error fetching project data:", error);
       }
@@ -69,7 +71,7 @@ const UpdateProject = () => {
     if (!collaboratorName.trim() && !collaboratorLink.trim()) return;
     setCollaboratorList([
       ...collaboratorList,
-      { name: collaboratorName.trim(), link: collaboratorLink.trim() },
+      { name: collaboratorName.trim(), linkedin: collaboratorLink.trim() },
     ]);
     setCollaboratorName("");
     setCollaboratorLink("");
@@ -108,6 +110,7 @@ const UpdateProject = () => {
       thumbnail: projectThumbnail,
       collaborators: collaboratorList,
       technologies: technologies.split(",").map((tech) => tech.trim()),
+      status: projectStatus,
       githubLink: github,
       liveLink: liveLink,
       description: projectDescription,
@@ -181,7 +184,7 @@ const UpdateProject = () => {
             {collaboratorList.map((collaborator, index) => (
               <li key={index}>
                 {collaborator.name}{" "}
-                <a href={collaborator.link}>
+                <a href={collaborator.linkedin}>
                   <BsLinkedin size="0.5em" />
                 </a>
               </li>
@@ -207,6 +210,18 @@ const UpdateProject = () => {
           </label>
           <button onClick={handleAddCollaborator}>Add Collaborator</button>
         </div>
+        <label>
+          Status:
+          <select
+            className="status-select"
+            value={projectStatus}
+            onChange={(e) => setProjectStatus(e.target.value)}
+          >
+            <option value="development">Development</option>
+            <option value="deployed">Deployed</option>
+            <option value="planned">Planned</option>
+          </select>
+        </label>
         <label>
           GitHub Link:
           <input
