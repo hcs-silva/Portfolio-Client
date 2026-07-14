@@ -1,33 +1,55 @@
-@use '../abstracts/variables' as *;
+@use "../abstracts/variables" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap");
 
 // =============================================================================
 // TYPOGRAPHY
 // =============================================================================
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: $line-height-tight;
-  font-weight: 700;
-  color: $text-light;
+  font-family: $font-heading;
+  font-weight: 400;
+  color: $text-dark;
 }
 
-h1 { font-size: $text-5xl; }
-h2 { font-size: $text-4xl; }
-h3 { font-size: $text-3xl; }
-h4 { font-size: $text-2xl; }
-h5 { font-size: $text-xl; }
-h6 { font-size: $text-lg; }
+h1 {
+  font-size: $text-5xl;
+}
+h2 {
+  font-size: $text-4xl;
+}
+h3 {
+  font-size: $text-3xl;
+}
+h4 {
+  font-size: $text-2xl;
+}
+h5 {
+  font-size: $text-xl;
+}
+h6 {
+  font-size: $text-lg;
+}
 
 p {
   line-height: $line-height-base;
-  color: $text-light;
+  color: $text-secondary;
+  font-family: $font-body;
 }
 
 em {
   color: $highlight;
   font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 strong {
   font-weight: 700;
+  color: $text-dark;
 }

@@ -18,43 +18,81 @@ import UpdateCertification from "./components/UpdateCertification";
 import AllProjects from "./components/AllProjects";
 import Footer from "./components/Footer";
 import UpdateProject from "./components/UpdateProject";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { PRIVATE_LOGIN_PATH } from "./constants/privatePaths";
 
 function App() {
   return (
     <div className="layout">
       <main className="main-content">
-      <Routes>
-        <Route path="/signup" element={<SignupPage />}></Route>
-        <Route path="/login" element={<LoginPage/>}></Route>
-        <Route path="/home" element = {<NoAdminPage/>}></Route>
-        <Route path="/" element={<LandingPage />}></Route>
-        
-        <Route path="/about" element={<AboutPage />}></Route>
-        <Route path="/certifications" element={<CertificationsPage />}></Route>
-        <Route
-          path="/projects/project-detail/:projectId"
-          element={<ProjectDetails />}
-        ></Route>
-        <Route path="/projects/update-project/:projectId" element={<UpdateProject/>}></Route>
-        <Route path="/update-certification" element= {<AdminRoute><UpdateCertification/></AdminRoute>}></Route>
-        <Route path="/dashboard" element={<AdminRoute><DashboardPage /></AdminRoute>}></Route>
-        <Route path="/add-project" element={<AdminRoute><AddProjectForm /></AdminRoute>}></Route>
-        <Route
-          path="/add-certification"
-          element={<AdminRoute><AddCertificationForm /></AdminRoute>}
-        ></Route>
-        <Route
-          path="/dashboard/all-certifications"
-          element={<AdminRoute><AllCertifications /></AdminRoute>}
-        ></Route>
-        <Route
-          path="/all-projects"
-          element={<AllProjects />}
-        ></Route>
-        <Route path="*" element={<NotFoundPage/>}></Route>
-      </Routes>
+        <Routes>
+          <Route path="/signup" element={<SignupPage />}></Route>
+          <Route path={PRIVATE_LOGIN_PATH} element={<LoginPage />}></Route>
+          <Route path="/home" element={<NoAdminPage />}></Route>
+          <Route path="/" element={<LandingPage />}></Route>
+
+          <Route path="/about" element={<AboutPage />}></Route>
+          <Route
+            path="/certifications"
+            element={<CertificationsPage />}
+          ></Route>
+          <Route
+            path="/projects/project-detail/:projectId"
+            element={<ProjectDetails />}
+          ></Route>
+          <Route
+            path="/projects/update-project/:projectId"
+            element={
+              <ProtectedRoute>
+                <UpdateProject />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/update-certification"
+            element={
+              <AdminRoute>
+                <UpdateCertification />
+              </AdminRoute>
+            }
+          ></Route>
+          <Route
+            path="/dashboard"
+            element={
+              <AdminRoute>
+                <DashboardPage />
+              </AdminRoute>
+            }
+          ></Route>
+          <Route
+            path="/add-project"
+            element={
+              <AdminRoute>
+                <AddProjectForm />
+              </AdminRoute>
+            }
+          ></Route>
+          <Route
+            path="/add-certification"
+            element={
+              <AdminRoute>
+                <AddCertificationForm />
+              </AdminRoute>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/all-certifications"
+            element={
+              <AdminRoute>
+                <AllCertifications />
+              </AdminRoute>
+            }
+          ></Route>
+          <Route path="/all-projects" element={<AllProjects />}></Route>
+          <Route path="*" element={<NotFoundPage />}></Route>
+        </Routes>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

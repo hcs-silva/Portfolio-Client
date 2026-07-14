@@ -1,5 +1,5 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 // =============================================================================
 // SPINNER
@@ -10,21 +10,18 @@
   width: 100vw;
   @include flex-column-center;
   gap: $space-8;
-  background: $primary;
+  background: $bg-app;
 
   a {
-    padding: $space-6 $space-12;
-    border-radius: $radius-xl;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background: $primary;
-    color: $text-light;
+    @include btn-ghost;
+    padding: $space-3 $space-6;
+    border-radius: $radius-md;
+    color: $text-dark;
     font-weight: 700;
-    font-size: $text-2xl;
-    box-shadow: $shadow-md;
+    font-size: $text-lg;
 
     &:hover {
-      box-shadow: none;
-      color: $highlight;
+      color: $accent;
     }
   }
 }

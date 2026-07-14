@@ -1,18 +1,17 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
-
-// =============================================================================
-// CERTIFICATIONS PAGE
-// =============================================================================
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .certificationsPage {
-  @include flex-column;
-  justify-content: center;
-  align-items: center;
-  padding: $space-4 $space-4 $space-8;
-  animation: fadeInUp 0.5s ease both;
+  width: min(100%, $section-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: $space-6 0;
+  animation: fadeInUp 0.45s ease both;
 
   h1 {
     @include section-heading;
+    margin-top: 0;
   }
 }

@@ -1,5 +1,5 @@
 import thumbnail from "/thumbnail.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
 
@@ -7,35 +7,33 @@ const NoAdminPage = () => {
   const { handleLogout } = useContext(AuthContext);
 
   return (
-    <div className="noAdmin-page">
-      <div className="thumbnail">
+    <section className="noAdmin-page">
+      <header className="landing-hero">
         <div className="header-text">
+          <p className="eyebrow">Logged In Workspace</p>
           <h1>Hernâni Silva</h1>
-          <h3>Junior Full Stack Web Developer</h3>
-          <h4>MERN Stack</h4>
+          <h2>Junior Full Stack Web Developer | MERN Stack</h2>
         </div>
-        <img src={thumbnail} alt="" />
-      </div>
-      <div className="landing-main">
-        <div className="layer1">
-          <div className="layer2">
-            <div className="layer3">
-              <div className="layer4"></div>
-            </div>
-          </div>
+
+        <div className="hero-photo-frame">
+          <img src={thumbnail} alt="Hernâni Silva profile" />
         </div>
-      </div>
-      <div className="noAdmin-bottom">
+      </header>
+
+      <section className="noAdmin-bottom">
         <div className="noAdmin-buttons">
-          <button onClick={handleLogout}>Logout</button>
+          <button onClick={handleLogout} className="logout-pill">
+            Logout
+          </button>
         </div>
-        <div className="navButtons">
+
+        <nav className="navButtons" aria-label="Logged in navigation">
           <Link to="/about">About</Link>
-          <Link to="/projects">Projects</Link>
+          <Link to="/all-projects">Projects</Link>
           <Link to="/certifications">Certifications</Link>
-        </div>
-      </div>
-    </div>
+        </nav>
+      </section>
+    </section>
   );
 };
 export default NoAdminPage;

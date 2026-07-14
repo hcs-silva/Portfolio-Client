@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
 const Spinner = () => {
+  const { isAdmin, isLoggedIn } = useContext(AuthContext);
 
-  const {isAdmin, isLoggedIn} = useContext(AuthContext);
-
-console.log(isLoggedIn)
+  console.log(isLoggedIn);
   return (
     <>
       <div className="spinner">
@@ -18,10 +17,17 @@ console.log(isLoggedIn)
           ariaLabel="hourglass-loading"
           wrapperStyle={{}}
           wrapperClass=""
-        colors={["var(--header-text-color)", "var(--hovers)"]}
-
+          colors={["var(--header-text-color)", "var(--hovers)"]}
         />
-      {isLoggedIn ? (isAdmin ? <Link to="/dashboard">Dashboard</Link> : <Link to= "/">Home</Link>) : <Link to="/login">Login</Link>}
+        {isLoggedIn ? (
+          isAdmin ? (
+            <Link to="/dashboard">Dashboard</Link>
+          ) : (
+            <Link to="/">Home</Link>
+          )
+        ) : (
+          <Link to="/">Home</Link>
+        )}
       </div>
     </>
   );

@@ -2,42 +2,10 @@
 // ANIMATIONS  (keyframes only — no variables import needed)
 // =============================================================================
 
-@keyframes rotateLayer1 {
-  from { transform: rotate(0deg) scale(1); }
-  to   { transform: rotate(10deg) scale(1.06); }
-}
-
-@keyframes translateLayer1 {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(16px, -16px); }
-  100% { transform: translate(0, 0); }
-}
-
-@keyframes moveLayer2 {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(6px, 6px); }
-  100% { transform: translate(0, 0); }
-}
-
-@keyframes rotateLayer3 {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-10deg); }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 12px rgba(87, 147, 235, 0.5); }
-  50%       { box-shadow: 0 0 28px rgba(87, 147, 235, 1); }
-}
-
-@keyframes pulseLayer4 {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.12); }
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -45,7 +13,33 @@
   }
 }
 
-@keyframes shimmer {
-  0%   { background-position: -400px 0; }
-  100% { background-position: 400px 0; }
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 20px rgba(17, 85, 204, 0.2);
+  }
+  50% {
+    box-shadow: 0 16px 28px rgba(17, 85, 204, 0.3);
+  }
+}
+
+@keyframes revealGrid {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

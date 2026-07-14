@@ -1,0 +1,37 @@
+// =============================================================================
+// STYLE GUIDE (Sizing + Alignment)
+// =============================================================================
+// This file is documentation-only. It defines consistency rules for future edits.
+// Keep this guide in sync with tokens in abstracts/_variables.scss.
+//
+// 1) Section width
+// - Use $section-max-width for major route wrappers.
+// - Pattern: width: min(100%, $section-max-width); margin: 0 auto;
+//
+// 2) Button sizing
+// - Primary/ghost action buttons should use:
+//   min-width: $btn-min-width;
+//   min-height: $btn-height;
+// - On small screens use:
+//   min-width: $btn-min-width-sm;
+//   min-height: $btn-height-sm;
+// - Keep button labels centered and avoid fit-content widths for core CTAs.
+//
+// 3) Card sizing
+// - Listing cards should use shared min/max heights:
+//   min-height: $card-min-height;
+//   max-height: $card-max-height;
+// - Card media wrappers should use:
+//   min-height/max-height: $card-media-height;
+// - Keep media aspect ratio at 16/9 unless the component has a clear reason.
+//
+// 4) Grid alignment
+// - Listing containers should stretch rows:
+//   align-items: stretch;
+// - Use auto-fit grid columns for responsive consistency:
+//   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+//
+// 5) Route consistency
+// - Keep page wrappers vertically spaced with the same top/bottom rhythm.
+// - Prefer shared component classes over page-specific one-off overrides.
+// =============================================================================

@@ -1,182 +1,234 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
-// =============================================================================
-// CARDS  (Certification & Project)
-// =============================================================================
+.certificationsContainer,
+.projectsContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $space-6;
+  margin-top: $space-3;
+  align-items: stretch;
+}
 
-// ---- Shared card base ----
 .certification-card,
 .project-card {
-  @include card($card-width);
-  @include flex-column;
-  align-items: center;
+  @include card(100%);
   min-height: $card-min-height;
   max-height: $card-max-height;
-  overflow: hidden;
+  height: 100%;
+  display: flex;
+}
 
-  // Shared image style
+.certification-card-content,
+.project-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  height: 100%;
+}
+
+.certification-image-wrapper,
+.project-image-wrapper {
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: linear-gradient(140deg, #eef4ff 0%, #d9e6ff 100%);
+  border: 1px solid rgba(17, 85, 204, 0.2);
+  min-height: $card-media-height;
+  max-height: $card-media-height;
+
   img {
     width: 100%;
-    height: 170px;
-    min-height: 170px;
-    max-height: 170px;
+    height: 100%;
     object-fit: cover;
-    border-radius: $radius-md;
-    margin-bottom: $space-4;
-  }
-
-  // Inner wrapper div
-  > div {
-    @include flex-column;
-    align-items: center;
-    width: 100%;
-    flex: 1;
-    @include glass(0.10);
-    border-radius: $radius-md;
-    padding: $space-4;
-    transition: $transition-base;
-
-    &:hover {
-      transform: scale(1.03);
-    }
+    aspect-ratio: 16 / 9;
   }
 }
 
-// ---- Certification card specifics ----
-.certification-card {
-  h3 {
-    color: $text-light;
-    font-size: $text-lg;
-    margin: $space-2 0 $space-1;
+.project-card h2,
+.certification-card h3 {
+  margin: 0;
+  font-size: $text-2xl;
+}
+
+.certification-card h3 {
+  font-size: $text-lg;
+  color: $text-dark;
+}
+
+.certification-card p,
+.project-card p {
+  margin: 0;
+  color: $text-secondary;
+}
+
+.project-card-link {
+  @include btn-primary;
+  margin-top: auto;
+  width: $btn-min-width;
+  min-height: $btn-height;
+  text-align: center;
+  align-self: center;
+}
+
+.certification-actions {
+  display: flex;
+  gap: $space-2;
+  margin-top: auto;
+
+  a,
+  button {
+    @include btn-ghost;
+    margin: 0;
+    font-size: $text-sm;
+    min-width: calc(#{$btn-min-width} - 28px);
+    min-height: $btn-height-sm;
+    padding: $space-2 $space-3;
     text-align: center;
+  }
+}
+
+.projectDetail {
+  width: 100%;
+}
+
+.project-loading {
+  @include card(100%);
+  text-align: center;
+  font-weight: 600;
+}
+
+.project-detail-card {
+  @include card(100%);
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: $space-8;
+  align-items: start;
+
+  @include respond-to("md") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.top-detail {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+
+  h2 {
+    margin: 0;
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+    border-radius: $radius-lg;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid rgba(17, 85, 204, 0.18);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.bottom-detail {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+.detail-block {
+  h3 {
+    margin: 0 0 $space-2;
+    font-size: $text-3xl;
+    color: $text-dark;
   }
 
   p {
-    font-size: $text-sm;
-    color: $text-light;
-    margin: $space-1 0;
-    text-align: center;
-  }
-
-  em {
-    color: $highlight;
-    font-size: $text-lg;
-  }
-
-  button {
-    padding: $space-2 $space-4;
-    margin: $space-1;
-    border-radius: $radius-md;
-    font-size: $text-sm;
-    font-weight: 600;
-    background: $primary;
-    color: $text-light;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: $shadow-sm;
-    max-width: 100%;
-
-    &:hover {
-      box-shadow: none;
-      color: $highlight;
-    }
+    margin: 0;
+    color: $text-secondary;
   }
 }
 
-// ---- Project card specifics ----
-.project-card {
-  width: $card-width;
-  min-width: $card-width;
-  max-width: $card-width;
-  min-height: $card-min-height;
-  max-height: $card-max-height;
-
-  h2 {
-    color: $text-light;
-    font-size: $text-xl;
-    margin-bottom: $space-3;
-    text-align: center;
-  }
-
-  > div {
-    width: 100%;
-    flex: 1 1 auto;
-    overflow: hidden;
-  }
-}
-
-// ---- Project detail card ----
-.project-detail-card {
-  @include glass(0.08);
-  border-radius: $radius-xl;
-  padding: $space-6;
-  text-align: center;
-  width: 80%;
-  min-height: 350px;
-  max-height: none;
-  display: flex;
-  gap: $space-8;
-  transition: $transition-base;
-
-  h2 {
-    color: $text-light;
-    font-size: $text-2xl;
-    margin-bottom: $space-6;
-  }
-
-  @include respond-to('md') {
-    flex-direction: column;
-    width: 95%;
-    max-height: none;
-    gap: $space-4;
-  }
-}
-
-// ---- Container grids ----
-.certificationsContainer,
-.projectsContainer {
+.collaborators-list,
+.tech-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: $space-5;
-  padding: $space-5;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: $space-2;
+}
 
-  @include respond-to('lg') {
-    > * {
-      flex: 1 1 45%;
-      max-width: 45%;
-    }
+.collaborators-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  border: 1px solid rgba(17, 85, 204, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: $radius-full;
+  padding: $space-1 $space-3;
+  color: $text-dark;
+  font-weight: 600;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    color: $accent;
+    padding: 0;
+    border: none;
+    background: transparent;
   }
+}
 
-  @include respond-to('md') {
-    > * {
-      flex: 1 1 100%;
-      max-width: 100%;
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  border: 1px solid rgba(17, 85, 204, 0.22);
+  background: rgba(17, 85, 204, 0.07);
+  color: $text-dark;
+  border-radius: $radius-full;
+  padding: $space-1 $space-3;
+  font-weight: 600;
+}
+
+.links {
+  display: flex;
+  gap: $space-3;
+
+  a {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-full;
+    border: 1px solid rgba(17, 85, 204, 0.28);
+    color: $accent;
+    background: rgba(255, 255, 255, 0.8);
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: $accent;
+      color: $accent-hover;
     }
   }
 }
 
-// ---- Responsive card adjustments ----
-@include respond-to('md') {
-  .certification-card,
-  .project-card {
-    width: 95vw;
-    min-width: 0;
-    max-width: 95vw;
-    min-height: 220px;
-    max-height: none;
-    padding: $space-4;
+#edit-project,
+#dashboard {
+  @include btn-ghost;
+  width: $btn-min-width;
+  min-height: $btn-height;
+  text-align: center;
+}
 
-    img {
-      height: 120px;
-      min-height: 120px;
-      max-height: 120px;
-    }
+@include respond-to("sm") {
+  .project-card-link,
+  #edit-project,
+  #dashboard {
+    width: $btn-min-width-sm;
+    min-height: $btn-height-sm;
   }
 
-  .project-card {
-    min-width: 0;
+  .certification-image-wrapper,
+  .project-image-wrapper {
+    min-height: 170px;
+    max-height: 170px;
   }
 }

@@ -1,4 +1,4 @@
-@use '../abstracts/variables' as *;
+@use "../abstracts/variables" as *;
 
 // =============================================================================
 // LAYOUT WRAPPERS
@@ -16,4 +16,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 0 $space-4 $space-8;
+
+  @media screen and (max-width: $bp-sm) {
+    padding: 0 $space-3 $space-6;
+  }
 }

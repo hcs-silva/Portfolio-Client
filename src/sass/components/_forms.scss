@@ -1,293 +1,98 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
-
-// =============================================================================
-// FORMS & INPUTS
-// =============================================================================
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 form {
-  @include flex-column;
-  gap: $space-5;
-  padding: $space-6;
-  @include glass(0.10);
-  border-radius: $radius-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
 }
 
-// ---- Labels ----
 label {
   display: flex;
-  align-items: center;
-  color: $text-light;
-  font-size: $text-lg;
-  font-weight: 500;
-  gap: $space-3;
+  flex-direction: column;
+  gap: $space-2;
+  color: $text-dark;
+  font-weight: 600;
 }
 
-// ---- Inputs & textareas ----
-input[type='text'],
-input[type='email'],
-input[type='password'],
-input[type='url'],
-input[type='date'],
-input[type='file'],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="date"],
+input[type="file"],
 textarea {
-  flex: 1;
-  padding: $space-3 $space-4;
-  border-radius: $radius-md;
-  border: 1px solid rgba(255, 255, 255, 0.20);
-  background: rgba(255, 255, 255, 0.08);
-  color: $text-light;
-  font-size: $text-base;
-  font-family: $font-system;
-  transition: border-color $transition-fast, box-shadow $transition-fast;
-  outline: none;
   width: 100%;
+  border: 1px solid rgba(29, 58, 110, 0.22);
+  border-radius: $radius-md;
+  background: #ffffff;
+  color: $text-dark;
+  padding: $space-3 $space-4;
+  font-family: $font-body;
+  font-size: $text-base;
+  transition: $transition-fast;
 
   &::placeholder {
     color: $text-muted;
   }
 
   &:focus {
-    border-color: $gold;
-    box-shadow: 0 0 0 3px rgba($gold, 0.2);
+    border-color: $accent;
+    box-shadow: $shadow-glow;
+    outline: none;
   }
 }
 
 textarea {
-  min-height: 100px;
   resize: vertical;
+  min-height: 110px;
 }
 
-// ---- Add Certification form wrapper ----
-.addCertificationWrapper {
-  @include flex-column-center;
-  margin: 20vh auto;
-  gap: $space-4;
-
-  a {
-    margin: $space-3;
-    padding: $space-3 $space-5;
-    background: $primary;
-    color: $text-light;
-    font-weight: 700;
-    border: 1px solid rgba(255, 255, 255, 0.20);
-    border-radius: $radius-md;
-    box-shadow: $shadow-sm;
-
-    &:hover {
-      box-shadow: none;
-      color: $highlight;
-      border-color: $bg-light;
-    }
-  }
-}
-
-.addCertification {
-  @include flex-column;
-  @include glass(0.10);
-  border-radius: $radius-xl;
-  padding: $space-8;
-  width: min(500px, 95vw);
-  gap: $space-5;
-  align-items: center;
-
-  h1 {
-    color: $text-light;
-    font-size: $text-3xl;
-    margin-bottom: $space-2;
-  }
-
-  form {
-    @include flex-column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    input {
-      width: 100%;
-      padding: $space-2 $space-3;
-    }
-
-    label {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      color: $text-light;
-      font-size: $text-lg;
-      margin: $space-3 0;
-      white-space: nowrap;
-      gap: $space-3;
-    }
-  }
-
-  button {
-    margin: $space-3;
-    padding: $space-3 $space-5;
-    background: $primary;
-    color: $text-light;
-    font-weight: 700;
-    border: 1px solid rgba(255, 255, 255, 0.20);
-    border-radius: $radius-md;
-    box-shadow: $shadow-sm;
-    font-size: $text-base;
-
-    &:hover {
-      box-shadow: none;
-      color: $highlight;
-      border-color: $bg-light;
-    }
-  }
-}
-
-// ---- Add Project form wrapper ----
-.addProjectWrapper {
-  @include flex-column-center;
-  padding: $space-8;
-  gap: $space-4;
-}
-
-.addProject {
-  @include flex-column;
-  @include glass(0.10);
-  border-radius: $radius-xl;
-  padding: $space-8;
-  width: min(500px, 95vw);
-  gap: $space-5;
-  align-items: center;
-}
-
-// ---- Collaborator section ----
-.collaborator {
-  @include flex-column;
-  gap: $space-2;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: $radius-md;
-  padding: $space-4;
-  width: 100%;
-
-  h2 {
-    color: $text-light;
-    font-size: $text-lg;
-    margin-bottom: $space-2;
-  }
-
-  a {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-    height: auto;
-
-    &:hover {
-      background: transparent;
-      box-shadow: none;
-      color: $highlight;
-    }
-  }
-
-  li {
-    color: $text-light;
-    font-size: $text-base;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: $space-2;
-  }
-}
-
-// ---- Update Project form ----
-.update-project-container {
-  @include flex-column-center;
-  margin-top: 8vh;
-  padding: $space-4;
-}
-
+.auth-shell,
+.addCertification,
+.addProject,
 .update-project-form {
-  @include glass(0.08);
-  border-radius: $radius-xl;
-  padding: $space-8 $space-6;
-  margin: $space-8 auto;
-  width: min(460px, 100%);
-  @include flex-column;
+  @include card(100%);
+  width: min(560px, 100%);
+}
+
+.auth-form button,
+.addCertification button,
+.addProject button,
+.update-project-form button {
+  @include btn-primary;
+  width: 100%;
+}
+
+.addCertificationWrapper,
+.addProjectWrapper,
+.update-project-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: $space-5;
-  color: $text-light;
+  padding-top: $space-8;
+}
 
-  label {
-    @include flex-column;
-    font-size: $text-lg;
-    font-weight: 600;
-    margin-bottom: $space-2;
-    color: $text-light;
-    gap: $space-2;
-  }
+.collaborator {
+  border: 1px solid rgba(17, 85, 204, 0.2);
+  border-radius: $radius-lg;
+  background: rgba(255, 255, 255, 0.65);
+  padding: $space-4;
+}
 
-  input[type='text'],
-  input[type='url'],
-  input[type='file'],
-  textarea {
-    margin-top: $space-2;
-    padding: $space-3 $space-4;
-    border-radius: $radius-md;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.10);
-    color: $text-light;
-    font-size: $text-base;
+.form-feedback {
+  margin: $space-2 0 0;
+  font-size: $text-sm;
+  font-weight: 600;
+  text-align: center;
+}
 
-    &:focus {
-      border-color: $highlight;
-      box-shadow: 0 0 0 3px rgba($highlight, 0.2);
-    }
-  }
+.form-feedback--error {
+  color: $highlight-dark;
+}
 
-  textarea {
-    min-height: 80px;
-    resize: vertical;
-  }
-
-  button {
-    font-size: $text-base;
-    padding: $space-3 $space-6;
-    border-radius: $radius-md;
-    font-weight: 600;
-    margin-top: $space-3;
-    background: $primary;
-    color: $text-light;
-    border: 1px solid rgba(255, 255, 255, 0.20);
-    cursor: pointer;
-    transition: $transition-fast;
-
-    &:hover:not(:disabled) {
-      background: $highlight;
-      color: #fff;
-    }
-  }
-
-  .collaborator {
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: $radius-md;
-    padding: $space-4;
-    margin-bottom: $space-2;
-
-    h2 {
-      font-size: $text-lg;
-      margin-bottom: $space-2;
-    }
-
-    ul {
-      margin: 0 0 $space-2 0;
-      padding-left: $space-5;
-    }
-
-    li {
-      font-size: $text-base;
-      margin-bottom: $space-1;
-      color: $text-light;
-    }
-  }
-
-  @include respond-to('sm') {
-    padding: $space-5 5vw;
-    width: 98vw;
-  }
+.form-feedback--success {
+  color: $success;
 }

@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 // =============================================================================
 // MIXINS
@@ -6,16 +6,46 @@
 
 // Responsive breakpoints (mobile-first with max-width queries)
 @mixin respond-to($bp) {
-  @if $bp == 'xs' {
-    @media screen and (max-width: #{$bp-xs}) { @content; }
-  } @else if $bp == 'sm' {
-    @media screen and (max-width: #{$bp-sm}) { @content; }
-  } @else if $bp == 'md' {
-    @media screen and (max-width: #{$bp-md}) { @content; }
-  } @else if $bp == 'lg' {
-    @media screen and (max-width: #{$bp-lg}) { @content; }
-  } @else if $bp == 'xl' {
-    @media screen and (max-width: #{$bp-xl}) { @content; }
+  @if $bp == "xs" {
+    @media screen and (max-width: #{$bp-xs}) {
+      @content;
+    }
+  } @else if $bp == "sm" {
+    @media screen and (max-width: #{$bp-sm}) {
+      @content;
+    }
+  } @else if $bp == "md" {
+    @media screen and (max-width: #{$bp-md}) {
+      @content;
+    }
+  } @else if $bp == "lg" {
+    @media screen and (max-width: #{$bp-lg}) {
+      @content;
+    }
+  } @else if $bp == "xl" {
+    @media screen and (max-width: #{$bp-xl}) {
+      @content;
+    }
+  }
+}
+
+@mixin respond-up($bp) {
+  @if $bp == "sm" {
+    @media screen and (min-width: #{$bp-sm}) {
+      @content;
+    }
+  } @else if $bp == "md" {
+    @media screen and (min-width: #{$bp-md}) {
+      @content;
+    }
+  } @else if $bp == "lg" {
+    @media screen and (min-width: #{$bp-lg}) {
+      @content;
+    }
+  } @else if $bp == "xl" {
+    @media screen and (min-width: #{$bp-xl}) {
+      @content;
+    }
   }
 }
 
@@ -48,15 +78,15 @@
 
 // Card with glass morphism and hover lift
 @mixin card($w: $card-width) {
-  @include glass(0.08);
+  @include glass(0.78);
   border-radius: $radius-xl;
   padding: $space-5;
   width: $w;
   transition: $transition-base;
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: $shadow-xl;
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
     background: $bg-card-hover;
   }
 }
@@ -68,7 +98,7 @@
   justify-content: center;
   padding: $space-3 $space-6;
   border-radius: $radius-md;
-  font-weight: 600;
+  font-weight: 700;
   font-size: $text-base;
   background: $accent;
   color: $text-light;
@@ -86,7 +116,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $gold;
+    outline: 2px solid rgba($accent, 0.4);
     outline-offset: 2px;
   }
 }
@@ -98,11 +128,11 @@
   justify-content: center;
   padding: $space-3 $space-6;
   border-radius: $radius-md;
-  font-weight: 600;
+  font-weight: 700;
   font-size: $text-base;
   background: transparent;
-  color: $text-light;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: $text-dark;
+  border: 1px solid rgba(22, 57, 119, 0.35);
   cursor: pointer;
   text-decoration: none;
   transition: $transition-fast;
@@ -110,33 +140,34 @@
 
   &:hover,
   &:focus-visible {
-    background: $bg-card-hover;
-    border-color: $text-light;
-    color: $gold;
+    background: rgba(17, 85, 204, 0.07);
+    border-color: $accent;
+    color: $accent;
     box-shadow: $shadow-sm;
   }
 
   &:focus-visible {
-    outline: 2px solid $gold;
+    outline: 2px solid rgba($accent, 0.35);
     outline-offset: 2px;
   }
 }
 
 // Section heading
 @mixin section-heading {
-  color: $text-light;
+  color: $text-dark;
   font-size: $text-4xl;
-  font-weight: 700;
+  font-weight: 400;
+  font-family: $font-heading;
   margin: $space-8 0 $space-6;
   text-align: center;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: $line-height-tight;
 
-  @include respond-to('md') {
+  @include respond-to("md") {
     font-size: $text-3xl;
   }
 
-  @include respond-to('xs') {
+  @include respond-to("xs") {
     font-size: $text-2xl;
   }
 }

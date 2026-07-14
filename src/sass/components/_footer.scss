@@ -1,18 +1,22 @@
-@use '../abstracts/variables' as *;
+@use "../abstracts/variables" as *;
 
 // =============================================================================
 // FOOTER
 // =============================================================================
 
 .footer {
-  background-color: $primary-dark;
-  color: $text-light;
+  background: linear-gradient(
+    180deg,
+    rgba(223, 233, 248, 0.65) 0%,
+    rgba(223, 233, 248, 0.9) 100%
+  );
+  color: $text-secondary;
   text-align: center;
-  padding: $space-4 0;
+  padding: $space-4 $space-3;
   font-size: $text-sm;
   display: flex;
   justify-content: center;
   align-items: center;
-  letter-spacing: 0.02em;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.03em;
+  border-top: 1px solid rgba(67, 95, 146, 0.2);
 }

@@ -1,119 +1,99 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
-// =============================================================================
-// BUTTONS & LINKS
-// =============================================================================
-
-// ---- Global button ----
 button {
-  @include btn-ghost;
-  margin: $space-4;
-  font-size: $text-lg;
-}
-
-// ---- Global anchor ----
-a {
-  @include btn-ghost;
-  margin: $space-2;
-  font-size: $text-base;
-}
-
-// ---- Shared hover (lighter override for dark backgrounds) ----
-button:hover,
-a:hover {
-  color: $highlight;
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: none;
-}
-
-// ---- Utility: transparent icon-only link ----
-.link-icon {
-  background: transparent;
+  font-family: $font-body;
   border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-
-  &:hover {
-    background: transparent;
-    box-shadow: none;
-    color: $highlight;
-  }
 }
 
-// ---- Back / utility link ----
+.page-home-link,
 .back-to-dash {
-  padding: $space-2 $space-5;
-  font-size: $text-sm;
-  background: $primary;
-  color: $text-light;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: $radius-md;
-  font-weight: 600;
-  transition: $transition-fast;
-  box-shadow: $shadow-sm;
-
-  &:hover {
-    color: $highlight;
-    box-shadow: none;
-    border-color: $bg-light;
-  }
+  @include btn-ghost;
+  margin-top: $space-8;
+  min-width: $btn-min-width;
+  min-height: $btn-height;
+  justify-self: center;
 }
 
-// ---- Download CV button ----
 .downloadCv {
-  color: $text-light;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  font-size: $text-xl;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  padding: $space-2;
-  margin: 0;
-
-  &:hover {
-    color: $gold;
-    background: transparent;
-    box-shadow: none;
-  }
+  @include btn-primary;
+  border-radius: $radius-full;
+  font-size: $text-lg;
+  letter-spacing: 0.01em;
+  padding: $space-4 $space-8;
+  min-height: $btn-height;
+  box-shadow: $shadow-md;
 }
 
-// ---- Nav buttons ----
 .navButtons {
   display: flex;
-  flex-direction: column;
-  gap: $space-2;
-  margin-right: $space-12;
+  flex-wrap: wrap;
+  gap: $space-3;
 
   a {
-    font-size: $text-xl;
-    padding: $space-3 $space-5;
-    border-radius: $radius-lg;
+    @include btn-ghost;
+    min-width: $btn-min-width;
+    min-height: $btn-height;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
 
-    &:hover {
-      color: $gold;
-      border-color: $gold;
+  @include respond-to("md") {
+    width: 100%;
+
+    a {
+      flex: 1;
+      min-width: 0;
     }
   }
 
-  @include respond-to('xs') {
-    margin-right: $space-8;
+  @include respond-to("sm") {
+    flex-direction: column;
 
     a {
-      font-size: $text-sm;
-      padding: $space-2 $space-3;
+      width: 100%;
+      min-width: 0;
+      min-height: $btn-height-sm;
     }
   }
 }
 
-// ---- Landing page nav buttons (larger) ----
-.landing-page .navButtons a {
-  font-size: $text-2xl;
-  padding: $space-3 $space-6;
-  border-radius: $radius-xl;
+.link-icon,
+.share-button {
+  @include flex-center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(17, 85, 204, 0.35);
+  border-radius: $radius-full;
+  background: $bg-light;
+  color: $accent;
+  box-shadow: $shadow-sm;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $accent-hover;
+    border-color: $accent;
+    transform: translateY(-2px);
+  }
+}
+
+.logout-pill {
+  @include btn-primary;
+  background: $highlight;
+  min-width: $btn-min-width;
+  min-height: $btn-height;
+
+  &:hover {
+    background: $highlight-dark;
+  }
+}
+
+@include respond-to("sm") {
+  .page-home-link,
+  .back-to-dash,
+  .logout-pill,
+  .downloadCv {
+    min-width: $btn-min-width-sm;
+    min-height: $btn-height-sm;
+  }
 }

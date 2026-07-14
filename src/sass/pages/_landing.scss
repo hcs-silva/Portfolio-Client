@@ -1,284 +1,125 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
-// =============================================================================
-// LANDING PAGE
-// =============================================================================
-
-.landing-page {
-  @include flex-column;
-  background: $primary;
-  overflow: hidden;
-}
-
-// ---- Hero / Thumbnail banner ----
-.thumbnail {
+.landing-page,
+.noAdmin-page {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  width: min(100%, $section-max-width);
+  margin: 0 auto;
+  gap: $space-8;
+  padding-top: $space-8;
+  animation: fadeInUp 0.45s ease both;
+}
+
+.landing-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 320px;
+  gap: $space-8;
   align-items: center;
-  background: linear-gradient(135deg, $primary-dark 0%, $primary-light 100%);
-  padding: $space-8 $space-12 $space-8 $space-12;
-  min-height: 34vh;
-  position: relative;
 
-  // Subtle bottom separator
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, $accent, transparent);
-  }
-
-  img {
-    height: 240px;
-    border-radius: $radius-2xl;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    box-shadow: $shadow-xl;
-    flex-shrink: 0;
-  }
-
-  @include respond-to('lg') {
-    padding: $space-6 $space-8;
-  }
-
-  @include respond-to('md') {
-    padding: $space-5 $space-6;
-    min-height: auto;
-
-    img {
-      height: 180px;
-    }
-  }
-
-  @include respond-to('xs') {
-    justify-content: space-between;
-    padding: $space-4;
-
-    img {
-      height: 130px;
-    }
+  @include respond-to("md") {
+    grid-template-columns: 1fr;
   }
 }
 
-// ---- Hero text ----
 .header-text {
-  color: $text-light;
-  animation: fadeInUp 0.7s ease both;
+  .eyebrow {
+    display: inline-block;
+    margin-bottom: $space-3;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: $accent;
+  }
 
   h1 {
-    font-size: $text-5xl;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: $space-1;
-    color: $text-light;
+    margin: 0;
+    font-size: clamp(2.2rem, 5vw, 4rem);
   }
 
-  h3 {
-    font-size: $text-xl;
+  h2 {
+    margin: $space-3 0 $space-4;
+    color: $text-dark;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-family: $font-body;
     font-weight: 600;
-    color: $text-muted;
-    margin-bottom: $space-2;
-  }
-
-  p {
-    margin: $space-1 0;
-  }
-
-  @include respond-to('lg') {
-    h1 { font-size: $text-4xl; }
-    h3 { font-size: $text-lg;  }
-  }
-
-  @include respond-to('md') {
-    h1 { font-size: $text-3xl; }
-    h3 { font-size: $text-base; }
-  }
-
-  @include respond-to('xs') {
-    h1 { font-size: $text-2xl; }
-    h3 { font-size: $text-sm;  }
+    line-height: 1.35;
   }
 }
 
 .hero-section {
-  color: $text-light;
-  font-size: $text-lg;
-  margin-top: $space-4;
-  max-width: 680px;
-  font-style: italic;
-  letter-spacing: 0.01em;
-  line-height: $line-height-loose;
-  text-shadow: 0 1px 2px rgba(10, 37, 64, 0.2);
-  transition: color $transition-slow;
+  max-width: 56ch;
+  color: $text-secondary;
+}
 
-  @include respond-to('md') {
-    font-size: $text-base;
-    max-width: 100%;
+.hero-photo-frame {
+  width: min(320px, 100%);
+  margin-left: auto;
+  border-radius: $radius-2xl;
+  padding: $space-2;
+  background: linear-gradient(145deg, #ffffff 0%, #e2ecff 100%);
+  border: 1px solid rgba(17, 85, 204, 0.2);
+  box-shadow: $shadow-lg;
+  animation: floatSoft 4s ease-in-out infinite;
+
+  img {
+    width: 100%;
+    border-radius: calc(#{$radius-2xl} - 0.25rem);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
   }
 
-  @include respond-to('xs') {
-    display: none;
+  @include respond-to("md") {
+    margin: 0;
+    width: min(280px, 100%);
   }
 }
 
-// ---- Center animated layers ----
-.landing-main {
-  background: $primary;
-  height: 34vh;
-  display: flex;
+.landing-actions,
+.noAdmin-bottom {
+  @include card(100%);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  padding-left: 300px;
+  gap: $space-5;
 
-  @include respond-to('lg') {
-    padding-left: 200px;
-  }
-
-  @include respond-to('md') {
-    padding-left: 120px;
-    height: 30vh;
-  }
-
-  @include respond-to('xs') {
-    justify-content: center;
-    align-items: center;
-    padding-top: $space-12;
-    padding-left: 100px;
+  @include respond-to("md") {
+    grid-template-columns: 1fr;
   }
 }
 
-$layer1-size: 260px;
-$layer2-size: 248px;
-$layer3-size: 216px;
-$layer4-size: 158px;
+.landing-support-text {
+  margin: 0;
+  color: $text-secondary;
+}
 
-.layer1 {
-  position: relative;
-  @include flex-center;
-  background: $bg-light;
-  height: $layer1-size;
-  width: $layer1-size;
-  border-radius: 50%;
-  overflow: hidden;
-  animation:
-    rotateLayer1 6s linear infinite alternate,
-    translateLayer1 4s ease-in-out infinite alternate;
+.landing-grid-accent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-3;
+  animation: revealGrid 0.6s ease both;
 
-  @include respond-to('xs') {
-    height: 150px;
-    width: 150px;
+  span {
+    height: 8px;
+    border-radius: $radius-full;
+    background: linear-gradient(
+      90deg,
+      rgba(17, 85, 204, 0.18) 0%,
+      rgba(17, 85, 204, 0.04) 100%
+    );
+
+    &:nth-child(2) {
+      background: linear-gradient(
+        90deg,
+        rgba(225, 73, 106, 0.18) 0%,
+        rgba(225, 73, 106, 0.03) 100%
+      );
+    }
   }
 }
 
-.layer2 {
-  @include flex-center;
-  background: $accent;
-  height: $layer2-size;
-  width: $layer2-size;
-  border-radius: 50%;
-  animation: moveLayer2 6s ease-in-out infinite alternate;
-
-  @include respond-to('xs') {
-    height: 140px;
-    width: 140px;
-  }
-}
-
-.layer3 {
-  @include flex-center;
-  background: #5793eb;
-  height: $layer3-size;
-  width: $layer3-size;
-  border-radius: 50%;
-  animation:
-    rotateLayer3 8s linear infinite reverse,
-    pulseGlow 4s ease-in-out infinite;
-
-  @include respond-to('xs') {
-    height: 110px;
-    width: 110px;
-  }
-}
-
-.layer4 {
-  @include flex-center;
-  background: #111b2b;
-  height: $layer4-size;
-  width: $layer4-size;
-  border-radius: 50%;
-  animation: pulseLayer4 5s ease-in-out infinite;
-
-  h2 {
-    color: $text-light;
-    font-size: $text-xl;
-    margin: $space-1;
-    text-align: center;
-  }
-
-  @include respond-to('xs') {
-    height: 52px;
-    width: 52px;
-
-    h2 { font-size: 0.5rem; }
-  }
-}
-
-// ---- Bottom CTA strip ----
-.landing-bottom {
+.noAdmin-buttons {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(180deg, $primary 0%, $primary-dark 100%);
-  padding: $space-8 $space-12;
-  min-height: 28vh;
-  gap: $space-6;
-
-  p {
-    font-size: $text-xl;
-    color: $text-light;
-    max-width: 480px;
-    line-height: $line-height-base;
-
-    @include respond-to('md') {
-      font-size: $text-base;
-      max-width: 260px;
-    }
-
-    @include respond-to('xs') {
-      font-size: $text-sm;
-      font-weight: 700;
-      width: 150px;
-      margin: $space-8;
-    }
-  }
-
-  ul li {
-    text-align: center;
-    margin: $space-4;
-    font-size: $text-5xl;
-    list-style: none;
-    color: $text-muted;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: $radius-xl;
-    padding: $space-2;
-    box-shadow: $shadow-md;
-
-    &:hover {
-      color: $highlight;
-      box-shadow: none;
-    }
-  }
-
-  @include respond-to('md') {
-    padding: $space-6 $space-6;
-  }
-
-  @include respond-to('xs') {
-    align-items: center;
-    justify-content: space-around;
-    padding: $space-4;
-    min-height: auto;
-  }
 }

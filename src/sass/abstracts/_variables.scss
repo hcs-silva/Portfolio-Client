@@ -1,93 +1,98 @@
-// =============================================================================
-// VARIABLES
-// =============================================================================
-// Color Palette
-$primary:               #0a2540;
-$primary-dark:          #071a30;
-$primary-light:         #0e3058;
-$accent:                #0056d2;
-$accent-hover:          #0047b3;
-$highlight:             #ff6b6b;
-$highlight-dark:        #e55555;
-$gold:                  #ffc107;
-$success:               #10b981;
+// Color palette
+$primary: #f4f8ff;
+$primary-dark: #dfe9f8;
+$primary-light: #ffffff;
+$accent: #1155cc;
+$accent-hover: #0f47aa;
+$highlight: #e1496a;
+$highlight-dark: #c53a59;
+$gold: #f0b429;
+$success: #1c9d73;
 
 // Text
-$text-light:            #f8f9fa;
-$text-dark:             #343a40;
-$text-secondary:        #6c757d;
-$text-muted:            #adb5bd;
+$text-light: #ffffff;
+$text-dark: #18253d;
+$text-secondary: #4f5f7d;
+$text-muted: #7283a3;
 
 // Backgrounds
-$bg-app:                #0a2540;
-$bg-light:              #e9ecef;
-$bg-card:               rgba(255, 255, 255, 0.08);
-$bg-card-hover:         rgba(255, 255, 255, 0.12);
-$bg-glass:              rgba(255, 255, 255, 0.10);
+$bg-app: #f4f8ff;
+$bg-light: #ffffff;
+$bg-card: rgba(255, 255, 255, 0.88);
+$bg-card-hover: rgba(255, 255, 255, 0.96);
+$bg-glass: rgba(255, 255, 255, 0.8);
 
-// Glass morphism
-$glass-border:          rgba(255, 255, 255, 0.20);
-$glass-shadow:          0 8px 32px rgba(0, 0, 0, 0.25);
+// Borders and effects
+$glass-border: rgba(92, 122, 177, 0.22);
+$glass-shadow: 0 18px 40px rgba(19, 42, 82, 0.14);
 
 // Spacing scale
-$space-1:  0.25rem;   //  4px
-$space-2:  0.5rem;    //  8px
-$space-3:  0.75rem;   // 12px
-$space-4:  1rem;      // 16px
-$space-5:  1.25rem;   // 20px
-$space-6:  1.5rem;    // 24px
-$space-8:  2rem;      // 32px
-$space-10: 2.5rem;    // 40px
-$space-12: 3rem;      // 48px
-$space-16: 4rem;      // 64px
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-16: 4rem;
 
-// Border radius
-$radius-sm:   0.375rem;
-$radius-md:   0.75rem;
-$radius-lg:   1rem;
-$radius-xl:   1.25rem;
-$radius-2xl:  1.5rem;
+// Radius
+$radius-sm: 0.4rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+$radius-xl: 1.35rem;
+$radius-2xl: 1.75rem;
 $radius-full: 9999px;
 
 // Typography
-$font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-  Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$font-body: "Sora", "Avenir Next", "Segoe UI", sans-serif;
+$font-heading: "DM Serif Display", "Georgia", serif;
 
-$text-xs:   0.75rem;
-$text-sm:   0.875rem;
+$text-xs: 0.75rem;
+$text-sm: 0.875rem;
 $text-base: 1rem;
-$text-lg:   1.125rem;
-$text-xl:   1.25rem;
-$text-2xl:  1.5rem;
-$text-3xl:  1.875rem;
-$text-4xl:  2.25rem;
-$text-5xl:  3rem;
-$text-6xl:  3.75rem;
+$text-lg: 1.125rem;
+$text-xl: 1.25rem;
+$text-2xl: 1.5rem;
+$text-3xl: 1.875rem;
+$text-4xl: 2.25rem;
+$text-5xl: 3rem;
+$text-6xl: 3.75rem;
 
-$line-height-tight:  1.25;
-$line-height-base:   1.6;
-$line-height-loose:  1.8;
+$line-height-tight: 1.2;
+$line-height-base: 1.6;
+$line-height-loose: 1.75;
 
 // Breakpoints
-$bp-xs: 425px;
-$bp-sm: 600px;
-$bp-md: 768px;
-$bp-lg: 1024px;
-$bp-xl: 1280px;
+$bp-xs: 480px;
+$bp-sm: 640px;
+$bp-md: 860px;
+$bp-lg: 1120px;
+$bp-xl: 1360px;
 
-// Transitions
-$transition-fast:   all 0.15s ease;
-$transition-base:   all 0.25s ease;
-$transition-slow:   all 0.4s ease;
+// Motion
+$transition-fast: all 0.18s ease;
+$transition-base: all 0.28s ease;
+$transition-slow: all 0.45s ease;
 
 // Shadows
-$shadow-sm:   0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
-$shadow-md:   0 4px 6px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
-$shadow-lg:   0 10px 20px rgba(0,0,0,0.15), 0 4px 6px rgba(0,0,0,0.08);
-$shadow-xl:   0 20px 40px rgba(0,0,0,0.20), 0 8px 16px rgba(0,0,0,0.08);
-$shadow-glow: 0 0 24px rgba(0, 86, 210, 0.45);
+$shadow-sm: 0 2px 6px rgba(25, 45, 82, 0.1);
+$shadow-md: 0 8px 18px rgba(22, 43, 82, 0.13);
+$shadow-lg: 0 16px 32px rgba(22, 43, 82, 0.16);
+$shadow-xl: 0 26px 52px rgba(22, 43, 82, 0.18);
+$shadow-glow: 0 0 0 3px rgba(17, 85, 204, 0.25);
 
-// Card dimensions
-$card-width:      280px;
-$card-min-height: 340px;
-$card-max-height: 420px;
+// Cards
+$card-width: 320px;
+$card-min-height: 300px;
+$card-max-height: 460px;
+
+// Consistency tokens
+$section-max-width: 1040px;
+$btn-min-width: 168px;
+$btn-min-width-sm: 138px;
+$btn-height: 46px;
+$btn-height-sm: 40px;
+$card-media-height: 190px;

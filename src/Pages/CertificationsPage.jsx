@@ -15,30 +15,33 @@ const CertificationsPage = () => {
   }, []);
 
   return (
-    <>
-      <div className="certificationsPage">
-        <h1>Certifications</h1>
-        <div className="certificationsContainer">
-          {certifications.map((certification) => (
-            <div className="certification-card" key={certification._id}>
-              <div>
+    <section className="certificationsPage">
+      <h1>Certifications</h1>
+      <div className="certificationsContainer">
+        {certifications.map((certification) => (
+          <article className="certification-card" key={certification._id}>
+            <div className="certification-card-content">
+              <div className="certification-image-wrapper">
                 <img
                   src={certification.certificationLink}
-                  alt="certificate preview"
+                  alt={`${certification.title} certificate preview`}
+                  loading="lazy"
                 />
-                <p>
-                  <em>Title:</em> {certification.title}
-                </p>
-                <h3>
-                  <em>Provider:</em> {certification.provider}
-                </h3>
               </div>
+              <p>
+                <em>Title:</em> {certification.title}
+              </p>
+              <h3>
+                <em>Provider:</em> {certification.provider}
+              </h3>
             </div>
-          ))}
-        </div>
-        <Link to="/">Home</Link>
+          </article>
+        ))}
       </div>
-    </>
+      <Link to="/" className="page-home-link">
+        Home
+      </Link>
+    </section>
   );
 };
 export default CertificationsPage;

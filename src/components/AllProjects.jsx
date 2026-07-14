@@ -16,23 +16,34 @@ const AllProjects = () => {
   }, []);
 
   return (
-    <div className="projectsPage">
+    <section className="projectsPage">
       <h1>Projects</h1>
       <div className="projectsContainer">
         {projects.map((project) => (
-          <div key={project._id} className="project-card">
-            <div>
+          <article key={project._id} className="project-card">
+            <div className="project-card-content">
               <h2>{project.title}</h2>
-              <img src={project.thumbnail} alt="Thumbnail of the project" />
-              <Link to={`/projects/project-detail/${project._id}`}>
+              <div className="project-image-wrapper">
+                <img
+                  src={project.thumbnail}
+                  alt={`Thumbnail of ${project.title}`}
+                  loading="lazy"
+                />
+              </div>
+              <Link
+                to={`/projects/project-detail/${project._id}`}
+                className="project-card-link"
+              >
                 Details
               </Link>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-      <Link to="/">Home</Link>
-    </div>
+      <Link to="/" className="page-home-link">
+        Home
+      </Link>
+    </section>
   );
 };
 export default AllProjects;

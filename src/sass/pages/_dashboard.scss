@@ -1,63 +1,32 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
-
-// =============================================================================
-// DASHBOARD PAGE
-// =============================================================================
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .dashboardPage {
-  @include flex-column;
-  justify-content: center;
-  align-items: center;
-  margin-top: $space-16;
-  gap: $space-4;
-  animation: fadeInUp 0.5s ease both;
+  width: min(100%, $section-max-width);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  gap: $space-3;
+  padding: $space-8 0;
+  animation: fadeInUp 0.45s ease both;
 
   h1 {
     @include section-heading;
+    margin-top: 0;
+    margin-bottom: $space-2;
   }
 
-  a {
-    min-width: 220px;
-    text-align: center;
+  a,
+  button {
+    width: min(280px, 100%);
   }
 }
 
-// Logout button inside dashboard
 .dash-logout {
-  margin-top: $space-6;
-  background: rgba($highlight, 0.15);
-  color: $highlight;
-  border-color: rgba($highlight, 0.4);
-  font-weight: 700;
+  background: $highlight;
 
   &:hover {
-    background: $highlight;
-    color: #fff;
-    box-shadow: none;
+    background: $highlight-dark;
+    color: $text-light;
   }
-}
-
-// ---- No Admin (user home) ----
-.noAdmin-page {
-  @include flex-column;
-  background: $primary;
-}
-
-.noAdmin-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: $space-6 $space-12;
-
-  @include respond-to('md') {
-    flex-direction: column;
-    gap: $space-4;
-    padding: $space-6;
-  }
-}
-
-.noAdmin-buttons {
-  display: flex;
-  align-items: center;
 }

@@ -21,6 +21,7 @@ const UpdateProject = () => {
   const [imageFile, setImageFile] = useState(null); // File state
   const [uploading, setUploading] = useState("");
   const [projectDate, setProjectDate] = useState("");
+  const [formMessage, setFormMessage] = useState("");
 
   // Fetch project details and populate form fields
   useEffect(() => {
@@ -30,7 +31,7 @@ const UpdateProject = () => {
           `${BACKEND_URL}/projects/${projectId}`,
           {
             headers: { authorization: `Bearer ${webToken}` },
-          }
+          },
         );
         const data = response.data;
         console.log(data.foundProject);
@@ -39,14 +40,14 @@ const UpdateProject = () => {
         setCollaboratorList(
           Array.isArray(data.foundProject.collaborators)
             ? data.foundProject.collaborators
-            : []
+            : [],
         );
         setCollaboratorName("");
         setCollaboratorLink("");
         setTechnologies(
           Array.isArray(data.foundProject.technologies)
             ? data.foundProject.technologies.join(", ")
-            : data.foundProject.technologies || ""
+            : data.foundProject.technologies || "",
         );
         setGithub(data.foundProject.githubLink || "");
         setLiveLink(data.foundProject.liveLink || "");
@@ -86,7 +87,7 @@ const UpdateProject = () => {
     try {
       const response = await axios.post(
         "https://api.cloudinary.com/v1_1/dzdrwiugn/image/upload",
-        formData
+        formData,
       );
 
       console.log(response);
@@ -115,18 +116,29 @@ const UpdateProject = () => {
 
     const updateProject = async () => {
       try {
+        setFormMessage("");
         const response = await axios.put(
-          `${BACKEND_URL}/projects/${projectId}`,
+          `${BACKEND_URL}/projects/update-project/${projectId}`,
           newProject,
-          { headers: { authorization: `Bearer ${webToken}` } }
+          { headers: { authorization: `Bearer ${webToken}` } },
         );
         if (response) {
-          alert("Project Updated Successfully");          
+          alert("Project Updated Successfully");
+          setFormMessage("Project updated successfully.");
         }
       } catch (error) {
         console.error("Error updating project:", error);
+        const statusCode = error?.response?.status;
+
+        if (statusCode === 401 || statusCode === 403) {
+          setFormMessage("You must be authenticated to edit projects.");
+        } else {
+          setFormMessage(
+            "Unable to update the project right now. Please try again.",
+          );
+        }
       }
-    }
+    };
     updateProject();
   }
 
@@ -230,6 +242,9 @@ const UpdateProject = () => {
           {uploading ? "Uploading..." : "Upload Image"}
         </button>
         <button type="submit">Update Project</button>
+        {formMessage && (
+          <p className="form-feedback form-feedback--error">{formMessage}</p>
+        )}
       </form>
       <Link to={`/projects/project-detail/${projectId}`}>
         Back to Project Details
