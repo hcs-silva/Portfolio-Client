@@ -9,7 +9,7 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5005";
 
 const AddProjectForm = () => {
   const [projectTitle, setProjectTitle] = useState("");
-  const [projectThumbnail, setProjectThumbnail] = useState("");  
+  const [projectThumbnail, setProjectThumbnail] = useState("");
   const [collaboratorList, setCollaboratorList] = useState([]);
   const [collaboratorName, setCollaboratorName] = useState("");
   const [collaboratorLink, setCollaboratorLink] = useState("");
@@ -60,7 +60,7 @@ const AddProjectForm = () => {
       const response = await axios.post(
         `${BACKEND_URL}/projects/`,
         newProject,
-        { headers: { authorization: `Bearer ${webToken}` } }
+        { headers: { authorization: `Bearer ${webToken}` } },
       );
       if (response) {
         alert("Project Added Sucessfully");
@@ -97,7 +97,7 @@ const AddProjectForm = () => {
     try {
       const response = await axios.post(
         "https://api.cloudinary.com/v1_1/dzdrwiugn/image/upload",
-        formData
+        formData,
       );
 
       console.log(response);
@@ -146,11 +146,20 @@ const AddProjectForm = () => {
           </label>
           <div className="collaborator">
             <h2>Collaborators: </h2>
-            <ul  value={collaboratorList} onChange={(e) => {setCollaboratorList(e.target.value)}}>{collaboratorList.map((collaborator, index) => (
-              <li key={index}>
-                {collaborator.name} <a href={collaborator.link}><BsLinkedin size="0.5em" /></a>
-              </li>
-            ))}
+            <ul
+              value={collaboratorList}
+              onChange={(e) => {
+                setCollaboratorList(e.target.value);
+              }}
+            >
+              {collaboratorList.map((collaborator, index) => (
+                <li key={index}>
+                  {collaborator.name}{" "}
+                  <a href={collaborator.link}>
+                    <BsLinkedin size="0.5em" />
+                  </a>
+                </li>
+              ))}
             </ul>
             <label>
               Collaborator Name:
